@@ -11,7 +11,8 @@ This error occurs because WeasyPrint requires system libraries (GTK, Cairo, Pang
 
 ## Solution
 1. **Download and install the GTK 3+ runtime for Windows:**
-   - [GTK for Windows Runtime Environment Installer](https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer)
+   - [GTK for Windows Runtime Environment Installer](https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer/releases)
+
 2. **Add GTK to your system PATH:**
    - After installation, add the GTK `bin` directory (e.g., `C:\Program Files\GTK3-Runtime Win64\bin`) to your PATH environment variable.
 3. **Restart your terminal or VS Code.**
