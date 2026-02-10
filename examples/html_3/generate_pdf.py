@@ -1,6 +1,7 @@
 from jinja2 import Environment, FileSystemLoader
 import markdown
-from weasyprint import HTML, CSS
+# from weasyprint import HTML, CSS
+import webbrowser
 import os
 import json
 
@@ -19,11 +20,8 @@ rendered_md = template.render(**data)
 
 # --- Convert Markdown → HTML ---
 html_content = markdown.markdown(rendered_md, extensions=["extra"])
-print(html_content)  # optional: see the generated HTML
 
-# --- Add CSS ---
-css_file = os.path.join("static", "style.css")
-css = CSS(filename=css_file)
+
 
 html_file_path = "report.html"
 with open(html_file_path, "w", encoding="utf-8") as f:
@@ -34,13 +32,23 @@ with open(html_file_path, "w", encoding="utf-8") as f:
 </head>
 <body>
 {html_content}
+<script>
+print()
+</script>
 </body>
 </html>
 """)
 
 print(f"HTML generated: {html_file_path}")
+chrome_path = r"C:\Program Files\Google\Chrome\Application\chrome.exe" 
+webbrowser.register('chrome', None, webbrowser.BackgroundBrowser(chrome_path))
+webbrowser.get('chrome').open('file://' + os.path.abspath(html_file_path))
 
-# --- Generate PDF ---
-HTML(string=html_content).write_pdf("report.pdf", stylesheets=[css])
 
-print("PDF generated: report.pdf")
+# css_file = os.path.join("static", "style.css")
+# css = CSS(filename=css_file)
+
+# # --- Generate PDF ---
+# HTML(string=html_content).write_pdf("report.pdf", stylesheets=[css])
+
+# print("PDF generated: report.pdf")

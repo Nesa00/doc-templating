@@ -1,5 +1,6 @@
 @echo off
-cd ../examples/markdown
-call ..\..\.venv\Scripts\activate.bat
+call ..\.venv\Scripts\activate.bat
+cd ..\examples\markdown
 python generate_pdf.py
 call ..\..\.venv\Scripts\deactivate.bat
+cd ..\..\script
