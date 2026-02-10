@@ -1,0 +1,14 @@
+{
+  "user": {
+    "name": "Alice"
+  },
+  "report": {
+    "date": "2026-02-09",
+    "summary": "All systems operational. No major issues found.",
+    "items": [
+      "Checked system logs",
+      "Reviewed performance metrics",
+      "Validated backups"
+    ]
+  }
+}
