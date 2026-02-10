@@ -1,6 +1,4 @@
 @echo off
-call ..\.venv\Scripts\activate.bat
-cd ..\examples\html_3
+call ..\..\.venv\Scripts\activate.bat
 python generate_pdf.py
 call ..\..\.venv\Scripts\deactivate.bat
-cd ..\..\script
