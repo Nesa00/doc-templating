@@ -2,7 +2,7 @@
 
 **Date:** {{ report.date }}
 
-## Summary
+### Summary
 {{ report.summary }}
 
 ## Details
