@@ -8,17 +8,17 @@ except OSError as e:
     print("pdf_write() will not work because WeasyPrint is not installed or has missing dependencies.")
 import os
 import json
-from templating.__constants import html_base
+from templating.__constants import defaults
 
 class pdf_html_generator:
     def __init__(self,
-                 templates_folder:str = r"templates", 
-                 data_file:str = r"data.json", 
-                 md_template:str = r"report.md", 
-                 css_style:str = r"style.css",
-                 html_file:str = r"base.html",
-                 output_pdf:str = r"output.pdf",
-                 output_html:str = r"output.html"):
+                 templates_folder:str = defaults.templates_folder, 
+                 data_file:str = defaults.data_file, 
+                 md_template:str = defaults.md_template, 
+                 css_style:str = defaults.css_style,
+                 html_file:str = defaults.html_file,
+                 output_pdf:str = defaults.output_pdf,
+                 output_html:str = defaults.output_html):
         self.templates_folder = templates_folder
         self.data_file = os.path.join(templates_folder,data_file)
         self.md_template = md_template
@@ -45,7 +45,7 @@ class pdf_html_generator:
         self.output_file = self.output_pdf
 
     def html_write(self):
-        template:Template = Template(html_base)
+        template:Template = Template(defaults.html_base)
         output_html_data = template.render(html_content=self.html_content, style_path = self.css_style)
         with open(self.output_html, "w", encoding="utf-8") as f:
             f.write(output_html_data)
