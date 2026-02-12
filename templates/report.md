@@ -12,4 +12,7 @@
 
 ---
 
+## Image
+![Report Image](templates/img.png)
+
 *Generated automatically.*

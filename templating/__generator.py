@@ -1,11 +1,14 @@
 from jinja2 import Environment, FileSystemLoader, Template
 import markdown
-from weasyprint import HTML, CSS
-from typing import Literal
-import webbrowser
+try:
+    from weasyprint import HTML, CSS
+    ie = False
+except OSError as e:
+    ie = True
+    print("pdf_write() will not work because WeasyPrint is not installed or has missing dependencies.")
 import os
 import json
-from templating.__constants import paths, html_base
+from templating.__constants import html_base
 
 class pdf_html_generator:
     def __init__(self,
@@ -28,23 +31,22 @@ class pdf_html_generator:
             self.data = json.load(f)
         self.env = Environment(loader=FileSystemLoader(self.templates_folder))
         self.template = self.env.get_template(self.md_template)
-        self.css = CSS(filename=self.css_style)
+        if not ie:
+            self.css = CSS(filename=self.css_style)
 
     def render(self):
         rendered_md = self.template.render(**self.data)
         self.html_content = markdown.markdown(rendered_md, extensions=["extra"])
     
     def pdf_write(self):
+        if ie:
+            raise ImportError("WeasyPrint is not installed. PDF generation is not available.")
         HTML(string=self.html_content).write_pdf(self.output_pdf, stylesheets=[self.css])
-        self.output = self.output_pdf
+        self.output_file = self.output_pdf
 
     def html_write(self):
         template:Template = Template(html_base)
         output_html_data = template.render(html_content=self.html_content, style_path = self.css_style)
         with open(self.output_html, "w", encoding="utf-8") as f:
             f.write(output_html_data)
-        self.output = self.output_html
-        
-    def open(self, browser: Literal["edge", "chrome", "brave"] = "brave"):
-        webbrowser.register(browser, None, webbrowser.BackgroundBrowser(paths[browser]))
-        webbrowser.get(browser).open('file://' + os.path.abspath(self.output))
+        self.output_file = self.output_html
