@@ -10,25 +10,12 @@ class Defaults:
     data_file: str = r"data.json"
     md_template: str = r"report.md"
     css_style: str = r"style.css"
+    base_html: str = r"base.html"
     
     # Output files
     output_pdf: str = r"output.pdf"
     output_html: str = r"output.html"
     
-    # HTML template
-    html_base:str = """
-<html>
-<head>
-    <link rel="stylesheet" href="{{style_path}}">
-</head>
-<body>
-    {{html_content}}
-    <script>
-        print()
-    </script>
-</body>
-</html>
-"""
     # Browser paths
     paths: Dict[str, str] = None
     

@@ -42,6 +42,7 @@ class PdfHtmlGenerator:
         self.data_file = os.path.join(templates_folder,data_file)
         self.md_template = md_template
         self.css_style = os.path.join(templates_folder,css_style)
+
         self.output_pdf = output_pdf
         self.output_html = output_html
 
@@ -76,11 +77,20 @@ class PdfHtmlGenerator:
             logger.error(f"Failed to load template {self.md_template}: {e}")
             raise
 
-    def render(self):
-        if not hasattr(self, 'template'):
-            raise RuntimeError("Call load_standard() before render()")
-        rendered_md = self.template.render(**self.data)
-        self.html_content = markdown.markdown(rendered_md, extensions=["extra"])
+        try:
+            self.base_template = self.env.get_template(defaults.base_html)
+            logger.info(f"Loaded HTML base template {defaults.base_html}")
+        except Exception as e:
+            logger.error(f"Failed to load HTML base template {defaults.base_html}: {e}")
+            raise
+
+    # def render_data(self):
+    #     if not hasattr(self, 'template'):
+    #         raise RuntimeError("Call load_standard() before render()")
+
+    
+    # def convert_markdown_to_html(self, markdown_text):
+        
     
     # def pdf_write(self):
     #     # if HTML is None:
@@ -92,9 +102,20 @@ class PdfHtmlGenerator:
     #     HTML(string=self.html_content).write_pdf(self.output_pdf, stylesheets=[css])
     #     self.output_file = self.output_pdf
 
+
     def html_write(self):
-        template:Template = Template(defaults.html_base)
-        output_html_data = template.render(html_content=self.html_content, style_path = self.css_style)
+
+        self.__rendered_md = self.template.render(**self.data)
+
+        self.html_content = markdown.markdown(self.__rendered_md, extensions=["extra"])
+        # print(self.html_content)
+
+        output_html_data = self.base_template.render(content=self.html_content, **self.data)
+
+        # templ:Template = Template(self.base_template.render(content=self.html_content))
+        
+        # output_html_data = templ.render(**self.data)
+
         with open(self.output_html, "w", encoding="utf-8") as f:
             f.write(output_html_data)
         self.output_file = self.output_html

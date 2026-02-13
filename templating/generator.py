@@ -24,8 +24,8 @@ class Generator(PdfHtmlGenerator):
             self.load_standard()
             logger.info("Templates and data loaded")
             
-            self.render()
-            logger.info("Template rendered to HTML")
+            # self.render_data()
+            # logger.info("Template rendered to HTML")
         except Exception as e:
             logger.error(f"Error during initialization: {e}", exc_info=True)
             raise

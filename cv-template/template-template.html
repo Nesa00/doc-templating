@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Curriculum Vitae - John Doe</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f4f6fa;
+            margin: 0;
+            padding: 0;
+        }
+        .cv-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 10px;
+            /* box-shadow: 0 4px 24px rgba(0,0,0,0.08); */
+            padding: 40px 50px 30px 50px;
+        }
+        .cv-header {
+            border-bottom: 2px solid #4f8cff;
+            padding-bottom: 18px;
+            margin-bottom: 30px;
+        }
+        .cv-header h1 {
+            margin: 0;
+            color: #1e3c72;
+            font-size: 2.4em;
+        }
+        .cv-header h2 {
+            margin: 0;
+            color: #4f8cff;
+            font-size: 1.2em;
+            font-weight: 400;
+        }
+        .cv-section {
+            margin-bottom: 28px;
+        }
+        .cv-section h3 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+            border-left: 4px solid #4f8cff;
+            padding-left: 10px;
+            font-size: 1.15em;
+        }
+        .cv-list {
+            margin: 0;
+            padding-left: 18px;
+        }
+        .cv-skill {
+            display: inline-block;
+            background: #e3edfa;
+            color: #1e3c72;
+            border-radius: 4px;
+            padding: 3px 10px;
+            margin: 2px 6px 2px 0;
+            font-size: 0.98em;
+        }
+        .cv-footer {
+            text-align: right;
+            color: #888;
+            font-size: 0.95em;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <div class="cv-header">
+            <h1>{{ name }}</h1>
+            <h2>Software Engineer</h2>
+            <div>Email: {{ contact.email }} | Phone: {{ contact.phone }} | City: {{ contact.city }}</div>
+        </div>
+        <div class="cv-section">
+            <h3>Profile</h3>
+            <p>Results-driven software engineer with 5+ years of experience in designing, developing, and deploying scalable web applications. Passionate about clean code, agile teams, and continuous learning.</p>
+        </div>
+        <div class="cv-section">
+            <h3>Skills</h3>
+            <span class="cv-skill">Python</span>
+            <span class="cv-skill">JavaScript</span>
+            <span class="cv-skill">Django</span>
+            <span class="cv-skill">React</span>
+            <span class="cv-skill">SQL</span>
+            <span class="cv-skill">Git</span>
+            <span class="cv-skill">Docker</span>
+        </div>
+        <div class="cv-section">
+            <h3>Experience</h3>
+            <ul class="cv-list">
+                <li><b>Senior Software Engineer</b> at Acme Corp (2022–Present)<br>
+                    - Led a team of 4 in building a microservices-based SaaS platform.<br>
+                    - Improved system performance by 30% through code optimization.
+                </li>
+                <li><b>Software Developer</b> at Webify Solutions (2019–2022)<br>
+                    - Developed REST APIs and single-page apps for e-commerce clients.<br>
+                    - Automated deployment pipelines using Docker and GitHub Actions.
+                </li>
+            </ul>
+        </div>
+        <div class="cv-section">
+            <h3>Education</h3>
+            <ul class="cv-list">
+                <li>B.Sc. in Computer Science, NYU, 2015–2019</li>
+            </ul>
+        </div>
+        <div class="cv-section">
+            <h3>Projects</h3>
+            <ul class="cv-list">
+                <li><b>OpenCVision</b> – An open-source image processing toolkit (Python, OpenCV)</li>
+                <li><b>TaskFlow</b> – A Kanban-style productivity app (React, Django REST)</li>
+            </ul>
+        </div>
+        <div class="cv-footer">
+            <em>References available upon request.</em>
+        </div>
+    </div>
+    <script>print()</script>
+</body>
+</html>

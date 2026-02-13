@@ -1,0 +1,64 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6fa;
+    margin: 0;
+    padding: 0;
+}
+.cv-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 10px;
+    /* box-shadow: 0 4px 24px rgba(0,0,0,0.08); */
+    padding: 40px 50px 30px 50px;
+}
+.cv-header {
+    border-bottom: 2px solid #4f8cff;
+    padding-bottom: 18px;
+    margin-bottom: 30px;
+}
+h1 {
+    margin: 0;
+    color: #1e3c72;
+    font-size: 2.4em;
+}
+h2 {
+    margin: 0;
+    color: #4f8cff;
+    font-size: 1.2em;
+    font-weight: 400;
+}
+p {
+    margin: 8px 0 0 0;
+    color: #555;
+    font-size: 0.95em;
+}
+.cv-section {
+    margin-bottom: 28px;
+}
+h3 {
+    color: #1e3c72;
+    margin-bottom: 10px;
+    border-left: 4px solid #4f8cff;
+    padding-left: 10px;
+    font-size: 1.15em;
+}
+.cv-list {
+    margin: 0;
+    padding-left: 18px;
+}
+.cv-skill {
+    display: inline-block;
+    background: #e3edfa;
+    color: #1e3c72;
+    border-radius: 4px;
+    padding: 3px 10px;
+    margin: 2px 6px 2px 0;
+    font-size: 0.98em;
+}
+.cv-footer {
+    text-align: right;
+    color: #888;
+    font-size: 0.95em;
+    margin-top: 30px;
+}

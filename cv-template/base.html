@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="cv-template/style.css">
+</head>
+<body>
+    <div class="cv-container">
+        <div class="cv-header">
+            <h1>{{ name }}</h1>
+            <h2>Software Engineer</h2>
+            <p>Email: {{ contact.email }} | Phone: {{ contact.phone }} | City: {{ contact.city }}</p>
+        </div>
+        <div class="cv-section">
+            <h3>Profile</h3>
+            <p>Results-driven software engineer with 5+ years of experience in designing, developing, and deploying scalable web applications. Passionate about clean code, agile teams, and continuous learning.</p>
+        </div>
+        <div class="cv-section">
+            <h3>Skills</h3>
+            <span class="cv-skill">Python</span>
+            <span class="cv-skill">JavaScript</span>
+            <span class="cv-skill">Django</span>
+            <span class="cv-skill">React</span>
+            <span class="cv-skill">SQL</span>
+            <span class="cv-skill">Git</span>
+            <span class="cv-skill">Docker</span>
+        </div>
+        <div class="cv-section">
+            <h3>Experience</h3>
+            <ul class="cv-list">
+                <li><b>Senior Software Engineer</b> at Acme Corp (2022–Present)<br>
+                    - Led a team of 4 in building a microservices-based SaaS platform.<br>
+                    - Improved system performance by 30% through code optimization.
+                </li>
+                <li><b>Software Developer</b> at Webify Solutions (2019–2022)<br>
+                    - Developed REST APIs and single-page apps for e-commerce clients.<br>
+                    - Automated deployment pipelines using Docker and GitHub Actions.
+                </li>
+            </ul>
+        </div>
+        <div class="cv-section">
+            <h3>Education</h3>
+            <ul class="cv-list">
+                <li>B.Sc. in Computer Science, NYU, 2015–2019</li>
+            </ul>
+        </div>
+        <div class="cv-section">
+            <h3>Projects</h3>
+            <ul class="cv-list">
+                <li><b>OpenCVision</b> – An open-source image processing toolkit (Python, OpenCV)</li>
+                <li><b>TaskFlow</b> – A Kanban-style productivity app (React, Django REST)</li>
+            </ul>
+        </div>
+        <div class="cv-footer">
+            <em>References available upon request.</em>
+        </div>
+    </div>
+    <script>print()</script>
+</body>
+</html>

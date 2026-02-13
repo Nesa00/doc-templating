@@ -1,0 +1,1 @@
+[WeasyPrint Samples](https://github.com/CourtBouillon/weasyprint-samples/blob/main/book/book.html)

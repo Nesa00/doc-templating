@@ -1,0 +1,15 @@
+{
+    "title": "Curriculum Vitae - John Doe",
+    "name": "John Doe",
+    "contact": {
+        "email": "john.doe@email.com",
+        "phone": "+1 555-123-4567",
+        "city": "New York, USA"
+    },
+    "skills": [
+        "Python",
+        "Data Analysis",
+        "Machine Learning",
+        "Web Development"
+    ]
+}

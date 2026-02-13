@@ -1,3 +1,4 @@
+import os
 from templating import Generator
 
 # Generator().pdf_gen()
@@ -6,8 +7,10 @@ from templating import Generator
 # print(os.getcwd())
 
 
-# gen = Generator(auto_open=True, browser="brave", templates_folder=f"{os.getcwd()}\\templates")
-gen = Generator(auto_open=True, browser="brave",templates_folder="test")
+# gen = Generator(auto_open=True, browser="default", templates_folder=f"{os.getcwd()}\\templates")
+# gen = Generator(auto_open=True, browser="default", templates_folder=f"letter")
+# gen = Generator(auto_open=True, browser="chrome",templates_folder="templates")
+gen = Generator(auto_open=True, browser="chrome",templates_folder="cv-template")
 
 
 # gen.pdf_gen() # bug no image 
