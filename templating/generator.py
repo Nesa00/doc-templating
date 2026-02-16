@@ -1,6 +1,6 @@
 from templating.__generator import PdfHtmlGenerator
-from templating.utils import browser_selection, load_data
-
+from templating.utils import browser_selection
+from templating.utils import defaults
 import logging
 from typing import Literal
 
@@ -9,32 +9,31 @@ logger = logging.getLogger(__name__)
 class Generator(PdfHtmlGenerator):
     def __init__(
         self,
-        auto_open: bool = False,
-        browser: Literal["edge", "chrome", "brave", "default"] = "default",
-        templates_folder: str = "templates",
+        # auto_open: bool = False,
+        browser: Literal["edge", "chrome", "brave", "default"] = None,
+        templates_folder: str = defaults.templates_folder,
+        template_file: str = defaults.base_html,
+        output_html:str = defaults.output_html,
         data: dict = None
     ) -> None:
-        super().__init__(templates_folder=templates_folder)
-        self.auto_open = auto_open
-        self.browser = browser
-        self.data = data
-        logger.debug(
-            f"Generator initialized: auto_open={auto_open}, browser={browser}"
+        super().__init__(
+            templates_folder=templates_folder,
+            template_file=template_file,
+            output_html=output_html,
+            data=data
         )
-        # Load templates and render
+        
+        self.browser = browser
         try:
             self.load_standard()
-            logger.info("Templates and data loaded")
-            
-            # self.render_data()
-            # logger.info("Template rendered to HTML")
+            logger.info("Templates loaded")
         except Exception as e:
             logger.error(f"Error during initialization: {e}", exc_info=True)
             raise
 
-    def open(self):
-        if not self.auto_open:
-            logger.debug("auto_open is False, skipping browser open")
+    def auto_open(self):
+        if not self.browser:
+            logger.debug("browser is None, skipping browser open")
             return
         
         if not hasattr(self, 'output_file'):
@@ -49,36 +48,6 @@ class Generator(PdfHtmlGenerator):
             raise
 
     def pdf(self):
-        # try:
-            self.auto_render()
-            self.open()
-        # except Exception as e:
-        #     print(f"Error generating PDF: {e}")
-            
-    # def pdf_gen(self):
-    # #     try:
-    # #         self.pdf_write()
-    # #     except ImportError as e:
-    # #         logger.error(f"Cannot generate PDF: WeasyPrint not installed", exc_info=True)
-    # #         raise
-    # #     except (RuntimeError, FileNotFoundError) as e:
-    # #         logger.error(f"PDF generation failed: {e}", exc_info=True)
-    # #         raise
-    # #     except Exception as e:
-    # #         logger.exception(f"Unexpected error during PDF generation")
-    # #         raise
-    
-    # # # Only open if everything succeeded
-    # #     self.open()
-    #     try:
-    #         self.pdf_write()
-    #         self.open()
-    #     except Exception as e:
-    #         print(f"Error generating PDF: {e}")
+        self.auto_render()
+        self.auto_open()
 
-    def html_gen(self):
-        try:
-            self.html_write()
-            self.open()
-        except Exception as e:
-            print(f"Error generating HTML: {e}")

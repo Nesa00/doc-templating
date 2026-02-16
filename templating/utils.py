@@ -1,6 +1,6 @@
 import winreg
 import webbrowser
-from templating.__constants import defaults
+from templating.constants import defaults
 from typing import Literal
 import os
 import logging
