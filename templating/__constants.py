@@ -7,10 +7,10 @@ class Defaults:
     
     # File/folder names
     templates_folder: str = r"templates"
-    data_file: str = r"data.json"
-    md_template: str = r"report.md"
-    css_style: str = r"style.css"
-    base_html: str = r"base.html"
+    # data_file: str = r"data.json"
+    # md_template: str = r"report.md"
+    # css_style: str = r"style.css"
+    base_html: str = r"main.html"
     
     # Output files
     output_pdf: str = r"output.pdf"

@@ -4,6 +4,9 @@ from templating.__constants import defaults
 from typing import Literal
 import os
 import logging
+import json
+
+from collections import ChainMap
 
 logger = logging.getLogger(__name__)
 
@@ -137,3 +140,44 @@ def _detect_default_browser() -> str:
         f"Default browser not supported. "
         f"Please specify one of: {supported}"
     )
+
+def load_json(file_path: str) -> dict:
+    """Load JSON data from a file.
+    
+    Args:
+        file_path: Path to the JSON file to load.
+    
+    Returns:
+        dict: Parsed JSON data.
+    
+    Raises:
+        FileNotFoundError: If the file does not exist.
+        json.JSONDecodeError: If the file contains invalid JSON.
+    """
+    if not os.path.isfile(file_path):
+        raise FileNotFoundError(f"File not found: {file_path}")
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except json.JSONDecodeError as e:
+        raise json.JSONDecodeError(f"Invalid JSON in {file_path}: {e.msg}", e.doc, e.pos)
+    return data
+
+def load_data(*file_paths: str) -> dict:
+    """Load and merge multiple JSON data files into a single dictionary.
+    
+    Args:
+        *file_paths: Variable number of file paths to JSON files.
+    
+    Returns:
+        dict: Merged dictionary containing data from all JSON files.
+    
+    Raises:
+        FileNotFoundError: If any of the files do not exist.
+        json.JSONDecodeError: If any of the files contain invalid JSON.
+    """
+    data_dicts = []
+    for file_path in file_paths:
+        data = load_json(file_path)
+        data_dicts.append(data)
+    return dict(ChainMap(*data_dicts))

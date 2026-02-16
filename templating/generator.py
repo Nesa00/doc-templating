@@ -1,5 +1,5 @@
 from templating.__generator import PdfHtmlGenerator
-from templating.utils import browser_selection
+from templating.utils import browser_selection, load_data
 
 import logging
 from typing import Literal
@@ -11,11 +11,13 @@ class Generator(PdfHtmlGenerator):
         self,
         auto_open: bool = False,
         browser: Literal["edge", "chrome", "brave", "default"] = "default",
-        templates_folder: str = "templates"
+        templates_folder: str = "templates",
+        data: dict = None
     ) -> None:
         super().__init__(templates_folder=templates_folder)
         self.auto_open = auto_open
         self.browser = browser
+        self.data = data
         logger.debug(
             f"Generator initialized: auto_open={auto_open}, browser={browser}"
         )
@@ -45,6 +47,13 @@ class Generator(PdfHtmlGenerator):
         except Exception as e:
             logger.error(f"Error opening file in browser: {e}", exc_info=True)
             raise
+
+    def pdf(self):
+        # try:
+            self.auto_render()
+            self.open()
+        # except Exception as e:
+        #     print(f"Error generating PDF: {e}")
             
     # def pdf_gen(self):
     # #     try:

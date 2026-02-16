@@ -1,0 +1,5 @@
+{
+    "css": "templates/style.css",
+    "image_url": "templates/img.png",
+    "data": "templates/data.json"
+}

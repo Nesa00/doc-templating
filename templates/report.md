@@ -1,3 +1,5 @@
+
+{% markdown %}
 # Report for {{ user.name }}
 
 **Date:** {{ report.date }}
@@ -13,6 +15,7 @@
 ---
 
 ## Image
-![Report Image](templates/img.png)
+![Report Image]({{ image_url }})
 
 *Generated automatically.*
+{% endmarkdown %}
