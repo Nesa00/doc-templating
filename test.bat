@@ -1,5 +1,5 @@
 @echo off
-REM Activate the virtual environment and run main.py
+REM Activate the virtual environment and run all pytest tests
 call .venv\Scripts\activate.bat
-python main.py
+pytest
 call .venv\Scripts\deactivate.bat

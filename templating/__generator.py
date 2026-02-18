@@ -1,7 +1,7 @@
 from jinja2 import Environment, FileSystemLoader
 from jinja_markdown import MarkdownExtension
-import os
 import logging
+import os
 
 logger = logging.getLogger(__name__)
 

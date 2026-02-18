@@ -2,3 +2,4 @@ jinja-markdown
 # markdown
 jinja2
 weasyprint
+pytest
