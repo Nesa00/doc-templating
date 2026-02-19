@@ -1,3 +1,9 @@
+[![Run Tests (Windows)](https://github.com/Nesa00/doc-templating/actions/workflows/tests.yml/badge.svg)](https://github.com/Nesa00/doc-templating/actions/workflows/tests.yml)
+
+[![jinja2](https://img.shields.io/badge/jinja2-3.0+-blue)](https://jinja.palletsprojects.com/)
+[![jinja-markdown](https://img.shields.io/badge/jinja--markdown-latest-green)](https://github.com/jpsca/jinja_markdown)
+[![WeasyPrint](https://img.shields.io/badge/WeasyPrint-enabled-brightgreen)](https://weasyprint.org/)
+
 # doc-templating
 
 A Python-based document generation tool that converts HTML and Markdown templates into formatted PDFs with CSS styling and structure support.
@@ -15,8 +21,6 @@ A Python-based document generation tool that converts HTML and Markdown template
 This tool requires external dependencies depending on which conversion method you use:
 
 - **Python 3.7+**
-- **Pandoc** (for Markdown to PDF conversion) - [Installation guide](https://pandoc.org/installing.html)
-- **LaTeX/pdflatex** (for advanced PDF generation) - [MiKTeX](https://miktex.org/download) or [TeX Live](https://www.tug.org/texlive/acquire-netinstall.html)
 - **WeasyPrint** (for HTML to PDF) - May require GTK libraries on Windows - [Installation guide](docs/html-error.md)
 
 ## Installation
