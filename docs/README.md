@@ -1,8 +1,8 @@
 [![Run Tests (Windows)](https://github.com/Nesa00/doc-templating/actions/workflows/tests.yml/badge.svg)](https://github.com/Nesa00/doc-templating/actions/workflows/tests.yml)
 
-[![jinja2](https://img.shields.io/badge/jinja2-3.0+-blue)](https://jinja.palletsprojects.com/)
+[![jinja2](https://img.shields.io/badge/jinja2-latest-green)](https://jinja.palletsprojects.com/)
 [![jinja-markdown](https://img.shields.io/badge/jinja--markdown-latest-green)](https://github.com/jpsca/jinja_markdown)
-[![WeasyPrint](https://img.shields.io/badge/WeasyPrint-enabled-brightgreen)](https://weasyprint.org/)
+[![WeasyPrint](https://img.shields.io/badge/WeasyPrint-latest-green)](https://weasyprint.org/)
 
 # doc-templating
 
