@@ -1,0 +1,115 @@
+{
+  "summary": "Senior Cloud & DevOps Engineer with 6+ years of experience architecting resilient cloud infrastructure, automating high-throughput CI/CD pipelines, and driving zero-downtime microservice deployments. Passionate about infrastructure-as-code, observability engineering, and container orchestration across high-scale distributed environments.",
+  "skills": [
+    {
+      "category": "Cloud Platforms & Orchestration",
+      "skills": [
+        "Kubernetes (EKS / GKE)",
+        "Docker & Containerd",
+        "Terraform & OpenTofu",
+        "AWS (EC2, S3, RDS, IAM)",
+        "Google Cloud Platform"
+      ]
+    },
+    {
+      "category": "CI/CD & GitOps Automation",
+      "skills": [
+        "GitHub Actions",
+        "ArgoCD",
+        "GitLab CI",
+        "Helm Charts",
+        "Automated Canary Releases"
+      ]
+    },
+    {
+      "category": "Observability & Performance",
+      "skills": [
+        "Prometheus & Grafana",
+        "OpenTelemetry",
+        "Datadog",
+        "Distributed Tracing",
+        "ELK / OpenSearch"
+      ]
+    },
+    {
+      "category": "Systems, Networking & Scripting",
+      "skills": [
+        "Go (Golang)",
+        "Python (FastAPI, Automation)",
+        "Bash Scripting",
+        "Linux Kernel & Network Tuning",
+        "PostgreSQL & Redis"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "company": "NovaSphere Technologies",
+      "place": "Austin, TX, USA",
+      "role": "Senior Cloud Infrastructure Engineer",
+      "start": "2023",
+      "end": "Present",
+      "summary": [
+        "Architected and managed multi-tenant Kubernetes clusters on AWS serving 15M+ daily API requests with 99.99% service uptime.",
+        "Engineered end-to-end GitOps delivery pipelines using ArgoCD and GitHub Actions, cutting mean deployment lead time from 45 minutes to 4 minutes.",
+        "Implemented distributed tracing and custom Grafana alerting with OpenTelemetry, decreasing Mean Time to Detect (MTTD) production anomalies by 40%.",
+        "Reduced monthly AWS cloud infrastructure spend by 28% through automated Karpenter pod autoscaling and spot instance fleets.",
+        "Spearheaded disaster recovery drills and multi-region failover automation, ensuring zero data loss during simulated availability zone outages."
+      ]
+    },
+    {
+      "company": "Aether Systems",
+      "place": "Boulder, CO, USA",
+      "role": "DevOps & Systems Engineer",
+      "start": "2020",
+      "end": "2023",
+      "summary": [
+        "Migrated monolithic legacy services to containerized microservices orchestrated via Terraform and Kubernetes.",
+        "Standardized infrastructure-as-code across 12 product teams, writing reusable Terraform modules adopted company-wide.",
+        "Designed automated security scanning (Trivy, SonarQube) in pull-request checks, intercepting critical vulnerabilities before staging release.",
+        "Maintained and tuned PostgreSQL database clusters, write-ahead replication, and automated snapshot backup policies.",
+        "Configured custom Prometheus exporters and log aggregation pipelines handling over 2 TB of daily log volume."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "KubeGuard: Real-Time Cluster Drift Detection",
+      "role": "Creator & Lead Maintainer",
+      "period": "2024",
+      "context": "Built an open-source CLI and daemon that monitors Kubernetes clusters in real-time to alert on configuration drift against source Git repositories.",
+      "approach": [
+        "Developed high-concurrency event-monitoring agent in Go using client-go informers and custom admission webhook interceptors.",
+        "Integrated Slack and PagerDuty webhook notifications with granular diff previews of drifted resource states.",
+        "Packaged lightweight Helm chart and Docker container with minimal 18MB scratch footprint and zero CVE vulnerabilities."
+      ],
+      "outcome": "Acquired 1,200+ GitHub stars and was adopted across several engineering teams as an internal compliance verification tool."
+    }
+  ],
+  "education": [
+    {
+      "school": "University of Colorado Boulder",
+      "degree": "B.S. in Computer Science & Distributed Systems",
+      "year": "2020"
+    },
+    {
+      "school": "Cloud Native Computing Foundation (CNCF)",
+      "degree": "Certified Kubernetes Administrator (CKA)",
+      "year": "2022"
+    }
+  ],
+  "languages": [
+    {
+      "name": "English",
+      "level": "Native"
+    },
+    {
+      "name": "German",
+      "level": "Professional Working"
+    },
+    {
+      "name": "Spanish",
+      "level": "Conversational"
+    }
+  ]
+}

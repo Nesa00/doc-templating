@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ personal.name }} — Cover Letter</title>
+  <!-- Google Fonts for crisp high-resolution print & screen -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="examples/CV/minimalistic/cover-letter/style.css">
+</head>
+<body>
+  <main class="cover-letter-page">
+
+    <!-- Header Section (Mirrors CV visual identity) -->
+    <header class="letter-header">
+      <div class="header-main">
+        <h1 class="candidate-name">{{ personal.name }}</h1>
+        <div class="contact-bar">
+          <span class="contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L1 7"/></svg>
+            <a href="mailto:{{ personal.email }}">{{ personal.email }}</a>
+          </span>
+
+          {% if personal.phone %}
+          <span class="contact-sep">·</span>
+          <span class="contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:{{ personal.phone }}">{{ personal.phone }}</a>
+          </span>
+          {% endif %}
+
+          {% if personal.location %}
+          <span class="contact-sep">·</span>
+          <span class="contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+            <a href="https://www.google.com/maps/search/?api=1&query={{ personal.location | urlencode }}" target="_blank" rel="noopener noreferrer">{{ personal.location }}</a>
+          </span>
+          {% endif %}
+        </div>
+      </div>
+    </header>
+
+    <!-- Recipient & Date Section -->
+    <section class="recipient-section">
+      <div class="recipient-block">
+        {% if recipient.name %}<span class="recipient-name">{{ recipient.name }}</span>{% endif %}
+        {% if recipient.title %}<span class="recipient-title">{{ recipient.title }}</span>{% endif %}
+        {% if recipient.company %}<span class="recipient-company">{{ recipient.company }}</span>{% endif %}
+        {% if recipient.address %}<span class="recipient-address">{{ recipient.address }}</span>{% endif %}
+      </div>
+      <div class="date-block">
+        {{ letter.date }}
+      </div>
+    </section>
+
+    <!-- Subject Line -->
+    {% if letter.subject %}
+    <div class="subject-line">
+      {{ letter.subject }}
+    </div>
+    {% endif %}
+
+    <!-- Salutation -->
+    <div class="salutation">
+      {{ letter.salutation }}
+    </div>
+
+    <!-- Letter Body Paragraphs -->
+    <div class="letter-content">
+      {% for paragraph in letter.paragraphs %}
+      <p>{{ paragraph }}</p>
+      {% endfor %}
+
+      {% if letter.highlights %}
+      <ul class="letter-highlights">
+        {% for item in letter.highlights %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+
+    <!-- Letter Closing & Signature -->
+    <div class="letter-closing">
+      {% if letter.closing %}
+      <p class="closing-text">{{ letter.closing }}</p>
+      {% endif %}
+
+      <p class="signoff">{{ letter.signoff }}</p>
+
+      <div class="signature-block">
+        <span class="signature-name">{{ letter.signatureName or personal.name }}</span>
+        {% if letter.title %}
+        <span class="signature-title">{{ letter.title }}</span>
+        {% endif %}
+      </div>
+    </div>
+
+  </main>
+</body>
+</html>

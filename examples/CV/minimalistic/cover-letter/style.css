@@ -1,0 +1,279 @@
+/* ==========================================================================
+   Executive Modern Cover Letter Stylesheet
+   Optimized for Headless Chromium / Brave PDF generation (doc-templating)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --color-canvas: #ffffff;
+  --color-primary: #0f172a;        /* Deep slate black */
+  --color-text-body: #1e293b;      /* Rich dark slate for maximum legibility */
+  --color-text-muted: #475569;     /* Subordinate metadata */
+  --color-text-dim: #64748b;       /* Minor dates/labels */
+  --color-border: #cbd5e1;         /* Hairline structural dividers */
+  --color-border-light: #e2e8f0;
+  --color-callout-bg: #f8fafc;
+  
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+/* Page Setup for A4 Printing - tightened margins to ensure single-page budget */
+@page {
+  size: A4 portrait;
+  margin: 12mm 18mm 12mm 18mm;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-canvas);
+  color: var(--color-text-body);
+  font-family: var(--font-sans);
+  font-size: 9pt;
+  line-height: 1.48;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Document Container */
+.cover-letter-page {
+  width: 100%;
+  max-width: 175mm;
+  margin: 0 auto;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* Header Styles - Exactly matching CV visual identity */
+.letter-header {
+  text-align: center;
+  padding-bottom: 7px;
+  margin-bottom: 14px;
+  border-bottom: 1.5px solid var(--color-primary);
+}
+
+.candidate-name {
+  margin: 0 0 4px 0;
+  font-size: 16pt;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  color: var(--color-primary);
+}
+
+.contact-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px 8px;
+  font-size: 8.5pt;
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.contact-item a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.contact-item a:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.contact-sep {
+  color: var(--color-border);
+  user-select: none;
+}
+
+.contact-icon {
+  width: 11px;
+  height: 11px;
+  stroke: var(--color-text-dim);
+  flex-shrink: 0;
+}
+
+/* Date and Recipient Section */
+.recipient-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  font-size: 8.8pt;
+  line-height: 1.4;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.recipient-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5px;
+  color: var(--color-text-body);
+}
+
+.recipient-name {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.recipient-title {
+  color: var(--color-text-muted);
+}
+
+.recipient-company {
+  font-weight: 500;
+  color: var(--color-text-body);
+}
+
+.recipient-address {
+  color: var(--color-text-muted);
+}
+
+.date-block {
+  text-align: right;
+  font-weight: 500;
+  color: var(--color-text-dim);
+  font-size: 8.8pt;
+}
+
+/* Subject line */
+.subject-line {
+  margin-bottom: 10px;
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: -0.01em;
+  padding-bottom: 2px;
+}
+
+/* Salutation */
+.salutation {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* Body Paragraphs */
+.letter-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--color-text-body);
+  text-align: justify;
+}
+
+.letter-content p {
+  margin: 0;
+  line-height: 1.48;
+}
+
+/* Bullet Highlights / Key Qualifications */
+.letter-highlights {
+  margin: 6px 0;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.letter-highlights li {
+  position: relative;
+  padding-left: 14px;
+  line-height: 1.42;
+  color: var(--color-text-body);
+  text-align: left;
+}
+
+.letter-highlights li::before {
+  content: "•";
+  position: absolute;
+  left: 2px;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+/* Closing & Sign-off - No awkward gap, guaranteed single-page grouping */
+.letter-closing {
+  margin-top: 10px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.closing-text {
+  margin-bottom: 8px;
+  line-height: 1.48;
+}
+
+.signoff {
+  margin: 0 0 4px 0;
+  color: var(--color-text-body);
+}
+
+.signature-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.signature-name {
+  font-weight: 700;
+  font-size: 10pt;
+  color: var(--color-primary);
+}
+
+.signature-title {
+  font-size: 8.5pt;
+  color: var(--color-text-muted);
+}
+
+/* Print optimizations */
+@media print {
+  html, body {
+    background: transparent !important;
+    font-size: 9pt !important;
+    line-height: 1.45 !important;
+  }
+  
+  .cover-letter-page {
+    max-width: 100% !important;
+    margin: 0 !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+  
+  .letter-closing,
+  .signature-block {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+}
