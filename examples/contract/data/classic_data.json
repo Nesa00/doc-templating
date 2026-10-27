@@ -1,0 +1,354 @@
+{
+  "metadata": {
+    "title": "MASTER SERVICES AGREEMENT",
+    "short_title": "Master Services Agreement",
+    "classification": "CONFIDENTIAL & PROPRIETARY",
+    "total_pages": 6
+  },
+  "recitals": [
+    "WHEREAS, Client is an enterprise software enterprise requiring high-performance cloud architecture, infrastructure modernization, automated quality engineering, and ongoing technical advisory services;",
+    "WHEREAS, Service Provider possesses specialized technical expertise, engineering personnel, proprietary frameworks, and capabilities in enterprise cloud architecture and systems deployment;",
+    "WHEREAS, Client desires to engage Service Provider, and Service Provider desires to accept such engagement, to provide specialized technical services, deliverables, and strategic consulting pursuant to the terms and covenants set forth herein."
+  ],
+  "pages": [
+    {
+      "page_number": 1,
+      "page_label": "Agreement Header & Definitions",
+      "is_cover_page": true,
+      "articles": [
+        {
+          "article_number": "1",
+          "title": "DEFINITIONS AND INTERPRETATION",
+          "clauses": [
+            {
+              "number": "1.1",
+              "heading": "Affiliate",
+              "text": "means any entity that directly or indirectly controls, is controlled by, or is under common control with a Party, where 'control' signifies ownership of more than fifty percent (50%) of the voting stock or equivalent ownership interest."
+            },
+            {
+              "number": "1.2",
+              "heading": "Applicable Law",
+              "text": "means all federal, state, local, or foreign statutes, regulations, ordinances, executive orders, and judicial decrees applicable to either Party in connection with the performance or receipt of Services."
+            },
+            {
+              "number": "1.3",
+              "heading": "Authorized Representative",
+              "text": "means the designated individual(s) authorized by each respective Party to approve Statements of Work, Change Orders, formal written notifications, and financial authorizations."
+            },
+            {
+              "number": "1.4",
+              "heading": "Change Order",
+              "text": "means a mutually executed written amendment to an active Statement of Work specifying modifications in scope, timetable, personnel allocations, deliverables, or fee structures."
+            },
+            {
+              "number": "1.5",
+              "heading": "Client Materials",
+              "text": "means all data, software repositories, proprietary schemas, architectural diagrams, internal documents, and brand assets furnished by Client to Service Provider."
+            },
+            {
+              "number": "1.6",
+              "heading": "Deliverables",
+              "text": "means all software programs, scripts, configurations, technical specifications, reports, architectures, and work product developed or delivered by Service Provider specifically for Client under an executed Statement of Work."
+            },
+            {
+              "number": "1.7",
+              "heading": "Intellectual Property Rights",
+              "text": "means all worldwide patents, patent applications, copyrights, moral rights, trade secrets, trademarks, service marks, know-how, and all other proprietary rights recognized under law."
+            },
+            {
+              "number": "1.8",
+              "heading": "Statement of Work (SOW)",
+              "text": "means each individual document executed by both Parties referencing this Agreement that outlines the particular scope of services, deliverables, schedules, and compensation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 2,
+      "page_label": "Services, Compensation & Intellectual Property",
+      "articles": [
+        {
+          "article_number": "2",
+          "title": "PROVISION OF SERVICES & SOW EXECUTION",
+          "clauses": [
+            {
+              "number": "2.1",
+              "heading": "Statements of Work",
+              "text": "Service Provider shall render the professional services and provide the Deliverables described in one or more Statements of Work executed in accordance with Schedule A attached hereto. Each SOW shall constitute an independent binding agreement incorporating the terms of this Agreement."
+            },
+            {
+              "number": "2.2",
+              "heading": "Standard of Performance",
+              "text": "Service Provider warrants that all Services shall be performed in a timely, professional, and workmanlike manner, in strict accordance with recognized industry standards and best technical practices."
+            },
+            {
+              "number": "2.3",
+              "heading": "Personnel Qualification",
+              "text": "Service Provider shall assign personnel with appropriate technical qualifications, licenses, and experience. Client retains the reasonable right to request replacement of any personnel demonstrating substandard performance."
+            }
+          ]
+        },
+        {
+          "article_number": "3",
+          "title": "FEES, INVOICING & PAYMENT TERMS",
+          "clauses": [
+            {
+              "number": "3.1",
+              "heading": "Compensation",
+              "text": "Client shall compensate Service Provider according to the pricing mechanisms, milestone schedules, or time-and-materials rate cards set forth in the applicable Statement of Work and Schedule C."
+            },
+            {
+              "number": "3.2",
+              "heading": "Invoicing & Payment Schedule",
+              "text": "Invoices shall be rendered monthly in arrears or upon milestone sign-off. Client shall remit payment within thirty (30) calendar days from receipt of an undisputed, valid itemized invoice."
+            },
+            {
+              "number": "3.3",
+              "heading": "Late Payments & Disputed Amounts",
+              "text": "Overdue balances shall accrue interest at the lesser of one percent (1.0%) per month or the maximum statutory rate permitted by law. In the event of a good faith dispute regarding any portion of an invoice, Client shall pay the undisputed balance and notify Provider in writing within fifteen (15) calendar days."
+            },
+            {
+              "number": "3.4",
+              "heading": "Taxes",
+              "text": "All fees exclude sales, use, excise, or value-added taxes. Client is responsible for paying applicable taxes, excluding taxes based on Service Provider's net corporate income."
+            }
+          ]
+        },
+        {
+          "article_number": "4",
+          "title": "INTELLECTUAL PROPERTY RIGHTS & OWNERSHIP",
+          "clauses": [
+            {
+              "number": "4.1",
+              "heading": "Work Made for Hire",
+              "text": "Upon full payment of all undisputed fees associated with a Deliverable, all right, title, and interest in such Deliverables shall vest in Client as a 'work made for hire' to the fullest extent permitted by law."
+            },
+            {
+              "number": "4.2",
+              "heading": "Pre-Existing & Background IP",
+              "text": "Service Provider retains all proprietary rights in its pre-existing libraries, toolkits, scaffolding, algorithms, and general know-how ('Background Technology'). Service Provider grants Client a perpetual, irrevocable, worldwide, non-exclusive, royalty-free license to use Background Technology solely as incorporated into Deliverables."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 3,
+      "page_label": "Confidentiality, Data Security & Warranties",
+      "articles": [
+        {
+          "article_number": "5",
+          "title": "CONFIDENTIALITY & NON-DISCLOSURE",
+          "clauses": [
+            {
+              "number": "5.1",
+              "heading": "Confidential Information",
+              "text": "Each Party ('Receiving Party') agrees to protect all non-public technical, commercial, financial, and operational information disclosed by the other Party ('Disclosing Party') with the same degree of care it exercises for its own confidential assets, but no less than reasonable care."
+            },
+            {
+              "number": "5.2",
+              "heading": "Exclusions",
+              "text": "Confidential Information does not encompass information that: (a) becomes publicly known through no breach of this Agreement; (b) was already known to the Receiving Party prior to disclosure; (c) is independently developed without reference to Disclosing Party's information; or (d) is rightfully received from a third party without confidentiality obligations."
+            },
+            {
+              "number": "5.3",
+              "heading": "Duration of Obligation",
+              "text": "The confidentiality obligations hereunder shall survive termination or expiration of this Agreement for a period of five (5) years, provided that trade secrets shall remain protected in perpetuity."
+            }
+          ]
+        },
+        {
+          "article_number": "6",
+          "title": "DATA PRIVACY & INFORMATION SECURITY",
+          "clauses": [
+            {
+              "number": "6.1",
+              "heading": "Security Safeguards",
+              "text": "Service Provider shall maintain industry-standard physical, administrative, and technical safeguards (including SOC 2 Type II or ISO 27001 aligned measures) to prevent unauthorized access, exposure, or destruction of Client Data."
+            },
+            {
+              "number": "6.2",
+              "heading": "Incident Notification",
+              "text": "In the event of a confirmed security breach impacting Client Data, Service Provider shall notify Client within twenty-four (24) hours of discovery and cooperate in remediation efforts."
+            }
+          ]
+        },
+        {
+          "article_number": "7",
+          "title": "REPRESENTATIONS & WARRANTIES",
+          "clauses": [
+            {
+              "number": "7.1",
+              "heading": "Mutual Authority",
+              "text": "Each Party represents and warrants that it possesses the full corporate power, authority, and legal capacity to enter into and perform this Agreement without violating any third-party obligation."
+            },
+            {
+              "number": "7.2",
+              "heading": "Non-Infringement",
+              "text": "Service Provider warrants that no Deliverable provided hereunder shall knowingly infringe or misappropriate any valid United States patent, copyright, trademark, or trade secret."
+            },
+            {
+              "number": "7.3",
+              "heading": "Disclaimer of Implied Warranties",
+              "text": "EXCEPT AS EXPRESSLY SET FORTH HEREIN, NEITHER PARTY MAKES ANY WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING WITHOUT LIMITATION WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 4,
+      "page_label": "Liability, Termination & Governing Law",
+      "articles": [
+        {
+          "article_number": "8",
+          "title": "INDEMNIFICATION & LIMITATION OF LIABILITY",
+          "clauses": [
+            {
+              "number": "8.1",
+              "heading": "Provider Indemnification",
+              "text": "Service Provider shall defend, indemnify, and hold harmless Client, its officers, directors, and employees from any third-party claim, damages, or defense costs arising from an allegation that a Deliverable infringes valid intellectual property rights."
+            },
+            {
+              "number": "8.2",
+              "heading": "Consequential Damages Waiver",
+              "text": "NEITHER PARTY SHALL BE LIABLE TO THE OTHER FOR ANY INDIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL, PUNITIVE, OR EXEMPLARY DAMAGES, INCLUDING LOSS OF PROFITS, DATA, OR BUSINESS REPUTATION."
+            },
+            {
+              "number": "8.3",
+              "heading": "Aggregate Liability Cap",
+              "text": "EXCEPT FOR GROSS NEGLIGENCE, WILLFUL MISCONDUCT, OR BREACH OF CONFIDENTIALITY UNDER ARTICLE 5, EACH PARTY'S TOTAL AGGREGATE LIABILITY ARISING UNDER THIS AGREEMENT SHALL BE LIMITED TO THE TOTAL FEES PAID OR PAYABLE BY CLIENT UNDER THE APPLICABLE SOW IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM."
+            }
+          ]
+        },
+        {
+          "article_number": "9",
+          "title": "TERM AND TERMINATION",
+          "clauses": [
+            {
+              "number": "9.1",
+              "heading": "Term",
+              "text": "This Agreement commences on the Effective Date and shall remain in effect for an initial period of twenty-four (24) months, renewing automatically for successive twelve (12) month terms unless either Party provides sixty (60) days' written notice of non-renewal."
+            },
+            {
+              "number": "9.2",
+              "heading": "Termination for Cause",
+              "text": "Either Party may terminate this Agreement or any SOW immediately if the other Party commits a material breach and fails to cure such breach within thirty (30) calendar days of receiving written notice."
+            },
+            {
+              "number": "9.3",
+              "heading": "Termination for Convenience",
+              "text": "Client may terminate any SOW without cause upon forty-five (45) days' prior written notice, subject to compensating Service Provider for Services rendered and non-cancelable commitments incurred prior to termination."
+            }
+          ]
+        },
+        {
+          "article_number": "10",
+          "title": "DISPUTE RESOLUTION & GENERAL PROVISIONS",
+          "clauses": [
+            {
+              "number": "10.1",
+              "heading": "Governing Law & Jurisdiction",
+              "text": "This Agreement shall be governed by and construed in accordance with the laws of the State of Delaware, without giving effect to conflicts of laws principles. The state and federal courts located in Wilmington, Delaware shall possess exclusive jurisdiction."
+            },
+            {
+              "number": "10.2",
+              "heading": "Severability & Integration",
+              "text": "If any provision of this Agreement is held invalid or unenforceable, the remaining provisions shall continue in full force and effect. This Agreement constitutes the complete and exclusive agreement between the Parties regarding its subject matter."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 5,
+      "page_label": "Execution & Signatures, Schedule A (Scope)",
+      "is_execution_page": true,
+      "schedule_a": {
+        "title": "SCHEDULE A: STATEMENT OF WORK (SOW-01)",
+        "project_name": "Cloud Infrastructure Modernization & Reliability Engineering",
+        "start_date": "November 15, 2025",
+        "target_completion": "May 30, 2026",
+        "milestones": [
+          {
+            "id": "M-1",
+            "title": "Architecture Discovery & Blueprinting",
+            "deliverable": "Multi-region architecture plan, threat model, compliance audit",
+            "due": "Dec 15, 2025",
+            "fee": "$38,000"
+          },
+          {
+            "id": "M-2",
+            "title": "Terraform Infrastructure as Code (IaC)",
+            "deliverable": "Automated provisioning pipelines, zero-trust network topology",
+            "due": "Feb 10, 2026",
+            "fee": "$54,000"
+          },
+          {
+            "id": "M-3",
+            "title": "Microservices Migration & CI/CD",
+            "deliverable": "Canary deployment engine, container security scanning",
+            "due": "Apr 05, 2026",
+            "fee": "$62,000"
+          },
+          {
+            "id": "M-4",
+            "title": "Production Cutover & Verification",
+            "deliverable": "Chaos testing, load verification report, operational runbooks",
+            "due": "May 30, 2026",
+            "fee": "$46,000"
+          }
+        ]
+      }
+    },
+    {
+      "page_number": 6,
+      "page_label": "Schedule B (SLA) & Schedule C (Rates)",
+      "schedule_b": {
+        "title": "SCHEDULE B: SERVICE LEVEL AGREEMENT (SLA)",
+        "intro": "Service Provider shall deliver operational maintenance, platform monitoring, and incident response under the following guaranteed service levels:",
+        "slas": [
+          {
+            "level": "Severity 1 (Critical)",
+            "definition": "Complete production outage or catastrophic data loss impacting all end users.",
+            "response": "< 15 minutes",
+            "resolution": "< 4 hours",
+            "credit": "10% monthly fee"
+          },
+          {
+            "level": "Severity 2 (Major)",
+            "definition": "Major feature degradation or significant performance latency without total downtime.",
+            "response": "< 1 hour",
+            "resolution": "< 12 hours",
+            "credit": "5% monthly fee"
+          },
+          {
+            "level": "Severity 3 (Moderate)",
+            "definition": "Minor defect or operational workaround available; non-critical system impact.",
+            "response": "< 4 hours",
+            "resolution": "< 48 hours",
+            "credit": "None"
+          },
+          {
+            "level": "Severity 4 (Low)",
+            "definition": "General technical inquiry, documentation request, or enhancement proposal.",
+            "response": "< 1 business day",
+            "resolution": "Next Sprint",
+            "credit": "None"
+          }
+        ]
+      },
+      "schedule_c": {
+        "title": "SCHEDULE C: PROFESSIONAL RATE SCHEDULE & EXPENSES",
+        "roles": [
+          { "role": "Principal Solutions Architect", "rate": "$240 / hour", "commitment": "Advisory / Lead" },
+          { "role": "Senior Cloud Infrastructure Engineer", "rate": "$195 / hour", "commitment": "Full-Time" },
+          { "role": "Site Reliability Engineer (SRE)", "rate": "$175 / hour", "commitment": "Full-Time" },
+          { "role": "Security & Compliance Specialist", "rate": "$210 / hour", "commitment": "Part-Time" }
+        ],
+        "expense_policy": "Out-of-pocket travel and lodging expenses must be pre-approved in writing by Client and shall be reimbursed at direct actual cost in accordance with standard GSA federal per diem benchmarks."
+      }
+    }
+  ]
+}

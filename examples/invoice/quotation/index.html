@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ metadata.title }} &mdash; Ref: {{ (quote_meta or metadata).quote_number }}</title>
+  <!-- Google Fonts for High-Fidelity Typography & Print -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Stylesheet imports -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="examples/invoice/quotation/style.css">
+</head>
+<body>
+  {% set q = quote_meta or metadata %}
+  <div class="quote-wrapper">
+    <!-- ====================================================================
+         PAGE 1: COMMERCIAL QUOTATION & ITEMISED SCOPE
+         ==================================================================== -->
+    <section class="quote-page" id="quote-page-1" data-page="1">
+      <!-- Running Header -->
+      <header class="quote-running-header">
+        <span class="running-brand">{{ vendor.brand_name }} &bull; {{ vendor.city_state_zip }}</span>
+        <span>Tax Reg: {{ vendor.tax_id }} &bull; Quote Ref: {{ q.quote_number }}</span>
+      </header>
+
+      <!-- Vendor & Quote Hero -->
+      <div class="quote-hero">
+        <div class="hero-left">
+          <div class="vendor-brand-name">{{ vendor.name }}</div>
+          <div class="vendor-tagline">{{ vendor.tagline }}</div>
+          <div class="vendor-meta-strip">
+            <span><strong>HQ:</strong> {{ vendor.address }}, {{ vendor.city_state_zip }}</span>
+            <span>&bull;</span>
+            <span><strong>Tel:</strong> {{ vendor.phone }}</span>
+            <span>&bull;</span>
+            <span><strong>Web:</strong> {{ vendor.website }}</span>
+            <span>&bull;</span>
+            <span><strong>Lead:</strong> {{ vendor.lead_architect }}</span>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <span class="doc-type-badge">{{ metadata.document_type }}</span>
+          <h1 class="quote-title">{{ metadata.title }}</h1>
+          <span class="status-badge-active">
+            [ {{ q.status }} ]
+          </span>
+        </div>
+      </div>
+
+      <!-- Quote Parameters Strip -->
+      <div class="quote-meta-grid">
+        <div class="meta-cell">
+          <span class="meta-cell-label">Quote Number</span>
+          <span class="meta-cell-value" style="font-family: var(--font-mono);">{{ q.quote_number }}</span>
+        </div>
+        <div class="meta-cell">
+          <span class="meta-cell-label">RFP Reference</span>
+          <span class="meta-cell-value" style="font-family: var(--font-mono);">{{ q.rfp_reference }}</span>
+        </div>
+        <div class="meta-cell">
+          <span class="meta-cell-label">Date Issued</span>
+          <span class="meta-cell-value">{{ q.issue_date }}</span>
+        </div>
+        <div class="meta-cell">
+          <span class="meta-cell-label">Valid Until</span>
+          <span class="meta-cell-value">{{ q.expiration_date }}</span>
+        </div>
+        <div class="meta-cell">
+          <span class="meta-cell-label">Estimated Timeline</span>
+          <span class="meta-cell-value">{{ q.estimated_duration }}</span>
+        </div>
+        <div class="meta-cell">
+          <span class="meta-cell-label">Currency</span>
+          <span class="meta-cell-value">{{ q.currency }}</span>
+        </div>
+      </div>
+
+      <!-- Client & Project Info Strip -->
+      <div class="client-project-strip">
+        <div class="client-card">
+          <div class="card-header-label">Prepared For (Client Entity)</div>
+          <div class="party-legal-name">{{ client.company }}</div>
+          <div class="party-address-line">
+            {{ client.billing_address }}<br>
+            {{ client.city_state_zip }}, {{ client.country }}
+          </div>
+          <div class="party-contact-sub">
+            <strong>Attention:</strong> {{ client.attention }} &bull; {{ client.email }}
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-header-label">Project Scope Focus</div>
+          <div class="party-legal-name" style="font-size: 8pt;">{{ client.project_title }}</div>
+          <div class="party-address-line" style="margin-top: 3px;">
+            <strong>Engagement Type:</strong> Fixed-Price Milestones with Dedicated Engineering Sprints
+          </div>
+          <div class="party-contact-sub">
+            <strong>Validity Period:</strong> {{ q.validity_period }} (Guaranteed Terms)
+          </div>
+        </div>
+      </div>
+
+      <!-- Section Heading -->
+      <div class="section-heading-bar">
+        <span>Section I: Itemised Scope of Deliverables &amp; Engineering Estimates</span>
+        <span>Table 1.1</span>
+      </div>
+
+      <!-- Deliverables Table -->
+      <div class="deliverables-table-container">
+        <table class="deliverables-table">
+          <thead>
+            <tr>
+              <th style="width: 14%;">{{ column_headers.code }}</th>
+              <th style="width: 44%;">{{ column_headers.deliverable }}</th>
+              <th style="width: 12%;" class="col-num">{{ column_headers.units }}</th>
+              <th style="width: 11%;" class="col-num">{{ column_headers.rate }}</th>
+              <th style="width: 7%;" class="col-num">{{ column_headers.discount }}</th>
+              <th style="width: 12%;" class="col-num">{{ column_headers.total }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in deliverables %}
+            <tr>
+              <td><span class="deliverable-code-badge">{{ item.code }}</span></td>
+              <td>
+                <div class="deliverable-title-bold">{{ item.title }}</div>
+                <div class="deliverable-scope-desc">{{ item.description }}</div>
+              </td>
+              <td class="col-num">{{ item.units }}</td>
+              <td class="col-num">{{ item.unit_rate }}</td>
+              <td class="col-num">
+                {% if item.discount != "0%" %}
+                <span class="discount-text">{{ item.discount }}</span>
+                {% else %}
+                <span style="color: var(--color-text-muted);">&mdash;</span>
+                {% endif %}
+              </td>
+              <td class="col-num deliverable-total-bold">{{ item.total }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Page 1 Bottom: Notes & Financial Calculation -->
+      <div class="page1-bottom-summary">
+        <div class="notes-card">
+          <div>
+            <div class="notes-title">Commercial Proposal Notes &amp; Confidentiality</div>
+            <div class="notes-body">{{ notes.confidentiality_statement }}</div>
+          </div>
+          <div class="notes-body" style="border-top: 1px solid var(--color-border-light); padding-top: 4px; margin-top: 4px;">
+            <strong>Acceptance Notice:</strong> {{ notes.acceptance_statement }}
+          </div>
+        </div>
+
+        <div class="totals-card">
+          <div class="totals-row">
+            <span class="totals-row-label">Gross Professional Services:</span>
+            <span class="totals-row-val">{{ summary.gross_subtotal }}</span>
+          </div>
+          <div class="totals-row">
+            <span class="totals-row-label">Enterprise Volume Discount:</span>
+            <span class="totals-row-val">{{ summary.volume_discount }}</span>
+          </div>
+          <div class="totals-row">
+            <span class="totals-row-label">Net Services Subtotal:</span>
+            <span class="totals-row-val">{{ summary.net_subtotal }}</span>
+          </div>
+          <div class="totals-row">
+            <span class="totals-row-label">Estimated Statutory Taxes:</span>
+            <span class="totals-row-val">{{ summary.estimated_tax }}</span>
+          </div>
+          <div class="grand-total-row">
+            <span class="grand-total-label">Total Quoted Investment:</span>
+            <span class="grand-total-val">{{ summary.total_quote_value }}</span>
+          </div>
+          <div class="totals-row" style="margin-top: 2px; font-size: 6.8pt; color: var(--color-text-muted);">
+            <span>Phase I Initial Deposit Required:</span>
+            <span style="font-weight: 700; color: var(--color-black);">{{ summary.initial_deposit_required }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Running Page 1 Footer -->
+      <footer class="quote-running-footer">
+        <span class="footer-left">{{ q.quote_number }} &bull; {{ vendor.name }}</span>
+        <span class="footer-center">{{ client.project_title }}</span>
+        <span class="footer-right">Page <strong>1</strong> of <strong>{{ metadata.total_pages }}</strong></span>
+      </footer>
+    </section>
+
+    <!-- ====================================================================
+         PAGE 2: DELIVERY SCHEDULE, TERMS & FORMAL AUTHORIZATION
+         ==================================================================== -->
+    <section class="quote-page" id="quote-page-2" data-page="2">
+      <!-- Running Header -->
+      <header class="quote-running-header">
+        <span class="running-brand">{{ vendor.brand_name }} &bull; Proposal Reference: {{ q.quote_number }}</span>
+        <span>Client: {{ client.company }} &bull; Page 2 of {{ metadata.total_pages }}</span>
+      </header>
+
+      <!-- Section Heading: Milestones -->
+      <div class="section-heading-bar">
+        <span>Section II: Delivery Schedule &amp; Milestone Billing Allocation</span>
+        <span>Table 2.1</span>
+      </div>
+
+      <!-- Milestones Table -->
+      <div class="milestones-table-container">
+        <table class="milestones-table">
+          <thead>
+            <tr>
+              <th style="width: 26%;">{{ column_headers.milestone_phase }}</th>
+              <th style="width: 14%;">{{ column_headers.milestone_timeline }}</th>
+              <th style="width: 38%;">{{ column_headers.milestone_deliverables }}</th>
+              <th style="width: 10%;" class="col-num">{{ column_headers.milestone_allocation }}</th>
+              <th style="width: 12%;" class="col-num">{{ column_headers.milestone_amount }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for m in milestones %}
+            <tr>
+              <td>
+                <div class="phase-title-bold">{{ m.phase }}</div>
+              </td>
+              <td>{{ m.duration }}</td>
+              <td>
+                <div class="phase-desc-sub">{{ m.deliverable_summary }}</div>
+              </td>
+              <td class="col-num">{{ m.percentage }}</td>
+              <td class="col-num" style="font-weight: 700;">{{ m.amount }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Section Heading: Terms of Quotation -->
+      <div class="section-heading-bar">
+        <span>Section III: Terms of Quotation &amp; Commercial Engagement Policy</span>
+        <span>Legal Articles</span>
+      </div>
+
+      <!-- Terms of Quotation Card -->
+      <div class="terms-card-p2">
+        <div class="terms-header-p2">{{ quotation_terms.title }}</div>
+        <div class="terms-articles-grid">
+          {% for article in quotation_terms.articles %}
+          <div class="term-item">
+            <span class="term-heading">{{ article.heading }} &mdash;</span>
+            {{ article.text }}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Dual Authorization Strip -->
+      <div class="authorization-strip">
+        <div class="auth-box">
+          <div class="auth-box-title">Vendor Proposal Endorsement</div>
+          <div class="auth-box-body">
+            I hereby certify that this price quotation and delivery estimate represent an authorized formal offer from {{ vendor.name }}.
+          </div>
+          <div class="auth-signature-line">{{ vendor.lead_architect }}</div>
+          <div class="auth-caption">
+            <span>Authorised Signature</span>
+            <span>Date: {{ q.issue_date }}</span>
+          </div>
+        </div>
+
+        <div class="auth-box">
+          <div class="auth-box-title">Client Acceptance &amp; Work Authorization</div>
+          <div class="auth-box-body">
+            By signing below, Client accepts the deliverables, milestones, and terms outlined in Quotation <strong>{{ q.quote_number }}</strong>.
+          </div>
+          <div class="auth-signature-line" style="font-weight: 400; color: var(--color-text-muted); font-size: 7pt;">
+            Signature: ___________________________________
+          </div>
+          <div class="auth-caption">
+            <span>Name: {{ client.attention }}</span>
+            <span>PO #: __________________</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Running Page 2 Footer -->
+      <footer class="quote-running-footer">
+        <span class="footer-left">{{ q.quote_number }} &bull; {{ vendor.name }}</span>
+        <span class="footer-center">Strictly Confidential &bull; Prepared exclusively for {{ client.company }}</span>
+        <span class="footer-right">Page <strong>2</strong> of <strong>{{ metadata.total_pages }}</strong></span>
+      </footer>
+    </section>
+  </div>
+</body>
+</html>

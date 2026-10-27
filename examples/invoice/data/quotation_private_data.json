@@ -1,0 +1,119 @@
+{
+  "vendor": {
+    "name": "Nexus Engineering & Cloud Architecture Corp.",
+    "brand_name": "NEXUS SYSTEMS ARCHITECTURE",
+    "tagline": "Enterprise Distributed Systems, Cloud Migration & High-Throughput Metrology",
+    "registration_no": "US-DE-CORP-883109",
+    "tax_id": "US-94-8201948",
+    "address": "400 Montgomery Street, Suite 1200",
+    "city_state_zip": "San Francisco, CA 94104",
+    "country": "United States",
+    "phone": "+1 (415) 555-0188",
+    "email": "proposals@nexus-arch.io",
+    "website": "www.nexus-arch.io",
+    "lead_architect": "Julian Sterling (Principal Systems Architect)"
+  },
+  "client": {
+    "company": "Apex Analytics Global Ltd.",
+    "attention": "Dr. Elena Rostova (VP of Engineering & Data Platform)",
+    "tax_id": "US-88-4920192",
+    "billing_address": "100 Innovation Way, Suite 800",
+    "city_state_zip": "Boston, MA 02110",
+    "country": "United States",
+    "email": "e.rostova@apex-analytics.io",
+    "phone": "+1 (617) 555-0342",
+    "project_title": "Enterprise Real-Time Event Streaming & Observability Platform"
+  },
+  "quote_meta": {
+    "quote_number": "QUO-2025-0842",
+    "rfp_reference": "RFP-APEX-DATA-2025",
+    "issue_date": "November 24, 2025",
+    "expiration_date": "December 24, 2025",
+    "validity_period": "30 Calendar Days",
+    "currency": "USD ($)",
+    "status": "VALID QUOTATION",
+    "estimated_duration": "14 Calendar Weeks"
+  },
+  "deliverables": [
+    {
+      "code": "ARCH-DISC-01",
+      "title": "System Architecture Discovery & Target Topology Blueprint",
+      "description": "Comprehensive audit of existing telemetry pipelines, latency bottleneck analysis, and formal distributed event architecture blueprint based on Apache Kafka and gRPC streaming protocols.",
+      "units": "80 Hours",
+      "unit_rate": "$210.00",
+      "discount": "0%",
+      "total": "$16,800.00"
+    },
+    {
+      "code": "ENG-STREAM-02",
+      "title": "High-Throughput Streaming Ingestion Engine Development",
+      "description": "Custom Rust/C++ stream microservices engineered for multi-tenant data ingestion with zero-copy serialization, fault-tolerant partition buffering, and automated dead-letter routing.",
+      "units": "240 Hours",
+      "unit_rate": "$195.00",
+      "discount": "5%",
+      "total": "$44,460.00"
+    },
+    {
+      "code": "INFRA-K8S-03",
+      "title": "Multi-Region Kubernetes (EKS) Infrastructure as Code",
+      "description": "Production Terraform and Helm manifests configuring multi-zone cluster auto-scaling, Cilium eBPF mesh networking, mTLS zero-trust communication, and automated failover policies.",
+      "units": "140 Hours",
+      "unit_rate": "$190.00",
+      "discount": "0%",
+      "total": "$26,600.00"
+    },
+    {
+      "code": "OBS-SLO-04",
+      "title": "Observability Mesh, SLO Dashboarding & Load Benchmarking",
+      "description": "Full Prometheus/Grafana distributed tracing instrumentation, P99 latency alert rules, chaos testing under 100k events/sec load, and formal handoff documentation with runbooks.",
+      "units": "100 Hours",
+      "unit_rate": "$185.00",
+      "discount": "10%",
+      "total": "$16,650.00"
+    }
+  ],
+  "milestones": [
+    {
+      "phase": "Phase I: Discovery & Specification",
+      "duration": "Weeks 1–3",
+      "deliverable_summary": "Architecture specification, infrastructure audit, data schema definitions, and design approval sign-off.",
+      "percentage": "20%",
+      "amount": "$20,902.00"
+    },
+    {
+      "phase": "Phase II: Core Ingestion Engine",
+      "duration": "Weeks 4–8",
+      "deliverable_summary": "Streaming engine MVP deployment, synthetic ingestion load benchmarking, and staging cluster configuration.",
+      "percentage": "35%",
+      "amount": "$36,578.50"
+    },
+    {
+      "phase": "Phase III: Resiliency & Security",
+      "duration": "Weeks 9–12",
+      "deliverable_summary": "Multi-region failover testing, zero-trust mTLS policy enforcement, SOC2 audit logging, and SLO telemetry setup.",
+      "percentage": "30%",
+      "amount": "$31,353.00"
+    },
+    {
+      "phase": "Phase IV: Production Go-Live",
+      "duration": "Weeks 13–14",
+      "deliverable_summary": "Production cutover, automated canary deployments, runbook verification, engineer workshops, and final acceptance.",
+      "percentage": "15%",
+      "amount": "$15,676.50"
+    }
+  ],
+  "summary": {
+    "gross_subtotal": "$104,510.00",
+    "volume_discount": "-$2,340.00",
+    "net_subtotal": "$102,170.00",
+    "estimated_tax": "$2,340.00",
+    "total_quote_value": "$104,510.00",
+    "initial_deposit_required": "$20,902.00",
+    "balance_on_milestones": "$83,608.00"
+  },
+  "signatories": {
+    "vendor_rep": "Julian Sterling (Principal Systems Architect)",
+    "client_rep": "Dr. Elena Rostova",
+    "client_title": "VP of Engineering & Data Platform"
+  }
+}

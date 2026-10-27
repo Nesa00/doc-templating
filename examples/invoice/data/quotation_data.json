@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "title": "FORMAL PRICE QUOTATION & SALES PROPOSAL",
+    "document_type": "COMMERCIAL SALES PROPOSAL",
+    "classification": "CONFIDENTIAL COMMERCIAL DOCUMENT",
+    "total_pages": 2
+  },
+  "column_headers": {
+    "code": "Item / Ref",
+    "deliverable": "Deliverable & Scope Specifications",
+    "units": "Effort / Units",
+    "rate": "Unit Rate",
+    "discount": "Disc.",
+    "total": "Quoted (USD)",
+    "milestone_phase": "Phase & Objective",
+    "milestone_timeline": "Timeline",
+    "milestone_deliverables": "Deliverables & Criteria",
+    "milestone_allocation": "Billing Split",
+    "milestone_amount": "Amount (USD)"
+  },
+  "quotation_terms": {
+    "title": "TERMS OF QUOTATION & ENGAGEMENT POLICY",
+    "articles": [
+      {
+        "heading": "1. Quotation Validity & Acceptance Period",
+        "text": "This price quotation is valid for thirty (30) calendar days from the date of issuance. Pricing and delivery timelines are guaranteed during this period. Acceptance after expiration requires re-validation by Vendor."
+      },
+      {
+        "heading": "2. Payment Milestones & Invoicing Schedule",
+        "text": "Invoicing is governed strictly by the Milestone Schedule specified in Section II. An initial deposit of 20% is due upon execution to schedule engineering sprints. Subsequent milestone payments are invoiced on acceptance of deliverables under Net 15 terms."
+      },
+      {
+        "heading": "3. Scope Governance & Change Management",
+        "text": "Deliverables and effort estimates reflect requirements defined during initial technical discovery. Any alterations, additional integrations, or architectural pivots requested by Client will be formally evaluated under a written Change Order."
+      },
+      {
+        "heading": "4. Intellectual Property & Code Ownership",
+        "text": "All custom software components, deployment scripts, and architectural blueprints developed under this proposal transfer to Client with exclusive, perpetual ownership immediately upon irrevocable payment clearance in full."
+      },
+      {
+        "heading": "5. Warranty & Post-Deployment Support",
+        "text": "Vendor provides a sixty (60) day post-launch defect remediation warranty covering all deliverable components against agreed technical specifications, with priority 24-hour turnaround for critical production issues."
+      }
+    ]
+  },
+  "notes": {
+    "confidentiality_statement": "This proposal contains proprietary technical approaches and commercial rates prepared exclusively for the named recipient. Unauthorized reproduction or redistribution is strictly prohibited.",
+    "acceptance_statement": "To accept this quotation and authorize commencement of work, sign the Authorization Block on Page 2 and return a copy along with your corporate Purchase Order."
+  }
+}

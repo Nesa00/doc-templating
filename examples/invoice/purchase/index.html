@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ metadata.title }} &mdash; Ref: {{ (invoice_meta or metadata).invoice_number }}</title>
+  <!-- Google Fonts for High-Fidelity Typography & Print -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Stylesheet imports -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="examples/invoice/purchase/style.css">
+</head>
+<body>
+  {% set m = invoice_meta or metadata %}
+  <div class="invoice-wrapper">
+    <section class="invoice-page" id="invoice-page-1" data-page="1">
+      <!-- Running Page Header -->
+      <header class="invoice-running-header">
+        <span class="running-brand">{{ seller.brand_name }} &bull; {{ seller.city_state_zip }}</span>
+        <span>Tax Registration: {{ seller.tax_id }} &bull; Ref: {{ m.invoice_number }}</span>
+      </header>
+
+      <!-- Document Hero & Seller Corporate Header -->
+      <div class="invoice-hero">
+        <div class="hero-left">
+          <div class="company-brand-name">{{ seller.name }}</div>
+          <div class="company-tagline">{{ seller.tagline }}</div>
+          <div class="company-meta-strip">
+            <span><strong>HQ:</strong> {{ seller.address }}, {{ seller.city_state_zip }}</span>
+            <span>&bull;</span>
+            <span><strong>Tel:</strong> {{ seller.phone }}</span>
+            <span>&bull;</span>
+            <span><strong>Web:</strong> {{ seller.website }}</span>
+            <span>&bull;</span>
+            <span><strong>Reg:</strong> {{ seller.registration_no }}</span>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <span class="doc-type-badge">{{ metadata.document_type }}</span>
+          <h1 class="invoice-title">{{ metadata.title }}</h1>
+          <span class="status-badge-pending">
+            [ {{ m.payment_status }} ]
+          </span>
+        </div>
+      </div>
+
+      <!-- Invoice Parameters Strip -->
+      <div class="invoice-meta-grid">
+        <div class="meta-cell">
+          <span class="meta-cell-label">Invoice Number</span>
+          <span class="meta-cell-value" style="font-family: var(--font-mono);">{{ m.invoice_number }}</span>
+        </div>
+        <div class="meta-cell">
+          <span class="meta-cell-label">Purchase Order</span>
+          <span class="meta-cell-value" style="font-family: var(--font-mono);">{{ m.po_number }}</span>
+        </div>
+        <div class="meta-cell">
+          <span class="meta-cell-label">Issue Date</span>
+          <span class="meta-cell-value">{{ m.issue_date }}</span>
+        </div>
+        <div class="meta-cell">
+          <span class="meta-cell-label">Payment Terms</span>
+          <span class="meta-cell-value">{{ m.payment_terms }}</span>
+        </div>
+        <div class="meta-cell">
+          <span class="meta-cell-label">Due Date</span>
+          <span class="meta-cell-value">{{ m.due_date }}</span>
+        </div>
+        <div class="meta-cell">
+          <span class="meta-cell-label">Shipment Method</span>
+          <span class="meta-cell-value">{{ m.ship_via }}</span>
+        </div>
+      </div>
+
+      <!-- Two-Column Bill-To & Ship-To Addresses -->
+      <div class="addresses-grid">
+        <!-- Billed To Card -->
+        <div class="address-card">
+          <div class="address-card-header">
+            <span class="address-title">Billed To (Customer / Entity)</span>
+            <span style="font-size: 6.5pt; font-family: var(--font-mono); color: var(--color-text-muted);">Tax ID: {{ buyer.tax_id }}</span>
+          </div>
+          <div class="party-legal-name">{{ buyer.company }}</div>
+          <div class="party-address-line">
+            {{ buyer.billing_address }}<br>
+            {{ buyer.billing_city_state_zip }}, {{ buyer.billing_country }}
+          </div>
+          <div class="party-contact-sub">
+            <strong>Attn:</strong> {{ buyer.attention }} &bull; {{ buyer.email }} &bull; {{ buyer.phone }}
+          </div>
+        </div>
+
+        <!-- Shipped To Card -->
+        <div class="address-card">
+          <div class="address-card-header">
+            <span class="address-title">Shipped / Delivered To</span>
+            <span style="font-size: 6.5pt; font-family: var(--font-mono); color: var(--color-text-muted);">Tracking: {{ m.delivery_tracking }}</span>
+          </div>
+          <div class="party-legal-name">{{ buyer.company }}</div>
+          <div class="party-address-line">
+            {{ buyer.shipping_address }}<br>
+            {{ buyer.shipping_city_state_zip }}, {{ buyer.shipping_country }}
+          </div>
+          <div class="party-contact-sub">
+            <strong>Receiving:</strong> Mon&ndash;Fri 08:00 AM&ndash;04:30 PM (Dock C &bull; Liftgate Required)
+          </div>
+        </div>
+      </div>
+
+      <!-- Line Items Table -->
+      <div class="items-table-container">
+        <table class="items-table">
+          <thead>
+            <tr>
+              <th style="width: 14%;">{{ column_headers.sku }}</th>
+              <th style="width: 44%;">{{ column_headers.description }}</th>
+              <th style="width: 7%;" class="col-num">{{ column_headers.qty }}</th>
+              <th style="width: 12%;" class="col-num">{{ column_headers.unit_price }}</th>
+              <th style="width: 7%;" class="col-num">{{ column_headers.discount }}</th>
+              <th style="width: 6%;" class="col-num">Tax</th>
+              <th style="width: 10%;" class="col-num">{{ column_headers.total }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in line_items %}
+            <tr>
+              <td><span class="sku-badge">{{ item.sku }}</span></td>
+              <td>
+                <div class="item-desc-bold">{{ item.description }}</div>
+                <div class="item-spec-text">{{ item.spec }}</div>
+              </td>
+              <td class="col-num">{{ item.qty }} <small style="color: var(--color-text-muted);">{{ item.unit }}</small></td>
+              <td class="col-num">{{ item.unit_price }}</td>
+              <td class="col-num">
+                {% if item.discount != "0%" %}
+                <span class="discount-tag">{{ item.discount }}</span>
+                {% else %}
+                <span style="color: var(--color-text-muted);">&mdash;</span>
+                {% endif %}
+              </td>
+              <td class="col-num">{{ item.tax_rate }}</td>
+              <td class="col-num line-total-bold">{{ item.total }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Two-Column Section: Remittance Bank Instructions & Financial Totals -->
+      <div class="bottom-section">
+        <!-- Remittance / Payment Instructions -->
+        <div class="remittance-card">
+          <div>
+            <div class="remit-header">
+              <span class="remit-title">Electronic Payment &amp; Remittance Details</span>
+              <span style="font-size: 6.5pt; font-family: var(--font-mono); color: var(--color-text-muted);">ACH / FedWire</span>
+            </div>
+            <div class="remit-grid">
+              <div>
+                <div class="remit-row-label">Bank Name</div>
+                <div class="remit-row-val" style="font-size: 6.8pt;">{{ seller.remit_to.bank_name }}</div>
+              </div>
+              <div>
+                <div class="remit-row-label">Account Holder</div>
+                <div class="remit-row-val" style="font-size: 6.8pt;">{{ seller.name }}</div>
+              </div>
+              <div>
+                <div class="remit-row-label">Account Number</div>
+                <div class="remit-row-val">{{ seller.remit_to.account_number }}</div>
+              </div>
+              <div>
+                <div class="remit-row-label">Routing / ABA</div>
+                <div class="remit-row-val">{{ seller.remit_to.routing_number }}</div>
+              </div>
+              <div>
+                <div class="remit-row-label">SWIFT / BIC Code</div>
+                <div class="remit-row-val">{{ seller.remit_to.swift_bic }}</div>
+              </div>
+              <div>
+                <div class="remit-row-label">IBAN</div>
+                <div class="remit-row-val" style="font-size: 6.5pt;">{{ seller.remit_to.iban }}</div>
+              </div>
+            </div>
+          </div>
+          <div class="remit-notice">
+            * Include Invoice #<strong>{{ m.invoice_number }}</strong> in wire transmission text. Send confirmation to <strong>{{ seller.remit_to.remittance_email }}</strong>.
+          </div>
+        </div>
+
+        <!-- Financial Calculation Totals -->
+        <div class="totals-card">
+          <div class="totals-row">
+            <span class="totals-row-label">Gross Subtotal:</span>
+            <span class="totals-row-val">{{ summary.subtotal }}</span>
+          </div>
+          <div class="totals-row">
+            <span class="totals-row-label">Trade Discounts:</span>
+            <span class="totals-row-val">{{ summary.total_discount }}</span>
+          </div>
+          <div class="totals-row">
+            <span class="totals-row-label">Net Taxable Amount:</span>
+            <span class="totals-row-val">{{ summary.net_taxable }}</span>
+          </div>
+          <div class="totals-row">
+            <span class="totals-row-label">Sales / Use Tax:</span>
+            <span class="totals-row-val">{{ summary.tax_amount }}</span>
+          </div>
+          <div class="totals-row">
+            <span class="totals-row-label">Freight &amp; Handling:</span>
+            <span class="totals-row-val">{{ summary.shipping_and_handling }}</span>
+          </div>
+          <div class="grand-total-row">
+            <span class="grand-total-label">Total Amount Due:</span>
+            <span class="grand-total-val">{{ summary.total_amount_due }}</span>
+          </div>
+          <div class="totals-row" style="margin-top: 2px; font-size: 6.8pt; color: var(--color-text-muted);">
+            <span>Balance Outstanding:</span>
+            <span style="font-weight: 700; color: var(--color-black);">{{ summary.balance_outstanding }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Legal Terms & Policy Notes -->
+      <div class="terms-card">
+        <div class="terms-header">{{ legal_terms.title }}</div>
+        <ul class="terms-list">
+          {% for pt in legal_terms.points %}
+          <li>{{ pt }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Signatures / Acceptance -->
+      <div class="signatures-strip">
+        <div class="sig-box">
+          <div class="sig-title">Authorized Vendor Representative:</div>
+          <div class="sig-line">{{ seller.billing_rep }}</div>
+          <div class="sig-caption">
+            <span>{{ seller.name }}</span>
+            <span>Date: {{ m.issue_date }}</span>
+          </div>
+        </div>
+        <div class="sig-box">
+          <div class="sig-title">Goods Inwards / Receiving Acceptance:</div>
+          <div class="sig-line" style="font-weight: 400; color: var(--color-text-muted); font-size: 7pt;">
+            Signature: _____________________________________
+          </div>
+          <div class="sig-caption">
+            <span>{{ buyer.company }}</span>
+            <span>Received By: ________________________</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Running Page Footer with Exact Page Numbers -->
+      <footer class="invoice-running-footer">
+        <span class="footer-left">{{ m.invoice_number }} &bull; {{ seller.name }}</span>
+        <span class="footer-center">{{ notes.electronic_statement }}</span>
+        <span class="footer-right">Page <strong>1</strong> of <strong>{{ metadata.total_pages }}</strong></span>
+      </footer>
+    </section>
+  </div>
+</body>
+</html>

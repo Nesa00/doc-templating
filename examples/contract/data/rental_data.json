@@ -1,0 +1,192 @@
+{
+  "metadata": {
+    "title": "RESIDENTIAL APARTMENT LEASE AGREEMENT",
+    "short_title": "Residential Lease Agreement",
+    "classification": "BINDING RESIDENTIAL CONTRACT",
+    "total_pages": 4
+  },
+  "household_covenant": "The undersigned Primary Tenant warrants that only the individuals expressly enumerated in the Authorized Household Roster shall reside in the Leased Premises as permanent occupants. All household occupants, invitees, and temporary guests shall strictly comply with all rules, covenants, noise curfews, and safety regulations set forth in this Lease Agreement. Any material violation, unauthorized long-term residency, or disturbance caused by any household occupant shall constitute a direct, non-curable breach by the Primary Tenant.",
+  "pages": [
+    {
+      "page_number": 1,
+      "page_title": "Parties, Premises & Household Occupancy Roster",
+      "is_page_one": true,
+      "sections": [
+        {
+          "number": "1",
+          "title": "DEMISE OF PREMISES & LEASE TERM",
+          "clauses": [
+            {
+              "num": "1.1",
+              "heading": "Grant of Lease",
+              "text": "Landlord hereby leases to Primary Tenant, and Primary Tenant hereby leases from Landlord, the private residential dwelling designated in this Agreement ('Premises'), together with the non-exclusive right to use the common areas of the residential community."
+            },
+            {
+              "num": "1.2",
+              "heading": "Term of Agreement",
+              "text": "The term of this Lease shall commence at 12:00 PM on the Commencement Date and expire at 11:59 AM on the Expiration Date specified in the Lease Terms. Any continuation thereafter shall convert to a month-to-month tenancy subject to sixty (60) days' advance written notice."
+            }
+          ]
+        },
+        {
+          "number": "2",
+          "title": "RENTAL PAYMENTS, LATE CHARGES & SECURITY DEPOSIT",
+          "clauses": [
+            {
+              "num": "2.1",
+              "heading": "Monthly Rent Obligation",
+              "text": "Primary Tenant agrees to pay Landlord the agreed monthly rent in advance on or before the due date of each calendar month via Landlord's resident portal or direct ACH bank transfer."
+            },
+            {
+              "num": "2.2",
+              "heading": "Grace Period & Late Surcharge",
+              "text": "A grace period is granted through 11:59 PM on the fifth (5th) calendar day of each month. If full rent is not received by said date, Primary Tenant shall pay the liquidated late charge specified in the Lease Terms."
+            },
+            {
+              "num": "2.3",
+              "heading": "Security Deposit Holding",
+              "text": "Primary Tenant has deposited with Landlord the security deposit to guarantee faithful performance of all covenants. Said deposit shall be held in an escrow account and refunded within statutory limits following vacancy inspection."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 2,
+      "page_title": "Household Occupancy, Utilities & Maintenance Standards",
+      "sections": [
+        {
+          "number": "3",
+          "title": "AUTHORIZED HOUSEHOLD OCCUPANCY & RESIDENT PRIVILEGES",
+          "clauses": [
+            {
+              "num": "3.1",
+              "heading": "Permitted Household Occupants",
+              "text": "The Premises shall be occupied strictly and exclusively as a private family residence by the Primary Tenant and the named Authorized Household Residents registered in the Registry. No other persons shall be permitted to establish permanent or continuous residency without prior written amendment signed by Landlord."
+            },
+            {
+              "num": "3.2",
+              "heading": "Guest Limitation Rules",
+              "text": "Temporary social guests may visit the Premises for no longer than fourteen (14) consecutive days, or twenty-one (21) aggregate days in any twelve-month period. Any individual remaining beyond this period shall be deemed an unauthorized occupant, constituting an incurable material breach of this Lease."
+            },
+            {
+              "num": "3.3",
+              "heading": "Primary Signatory Sole Liability",
+              "text": "Because only Primary Tenant executes this Agreement, Primary Tenant expressly covenants to supervise and accept full legal, civil, and financial responsibility for the conduct, safety, and property damages caused by all listed household residents and their invitees."
+            }
+          ]
+        },
+        {
+          "number": "4",
+          "title": "UTILITIES, SERVICES & ACCESS CODES",
+          "clauses": [
+            {
+              "num": "4.1",
+              "heading": "Landlord Utility Contributions",
+              "text": "Landlord shall furnish municipal cold water, structural sewer, common area landscaping, trash collection, and building recycling services at no additional surcharge to Tenant."
+            },
+            {
+              "num": "4.2",
+              "heading": "Tenant Utility Accounts",
+              "text": "Primary Tenant shall establish and maintain separate accounts in Tenant's name for electricity, natural gas, and high-speed internet/telecommunications, paying all related utility charges directly to suppliers."
+            }
+          ]
+        },
+        {
+          "number": "5",
+          "title": "PROPERTY CARE, MAINTENANCE & PROHIBITED ALTERATIONS",
+          "clauses": [
+            {
+              "num": "5.1",
+              "heading": "Tenant Maintenance Standard",
+              "text": "The household shall maintain the Premises in a sanitary, clean, and hazard-free condition, operating all electrical, plumbing, sanitary, and HVAC fixtures in a safe manner."
+            },
+            {
+              "num": "5.2",
+              "heading": "Prohibition of Structural Alterations",
+              "text": "Neither Tenant nor any household member shall repaint walls, install permanent wall anchors, change exterior deadbolts, or alter electrical wiring without Landlord's explicit prior written approval."
+            }
+          ]
+        },
+        {
+          "number": "6",
+          "title": "PET COVENANT & ANIMAL POLICY",
+          "clauses": [
+            {
+              "num": "6.1",
+              "heading": "Authorized Domestic Pets",
+              "text": "Household is approved to harbor approved domestic pets subject to registered microchip and paid deposit. No exotic animals or unapproved pets are permitted."
+            },
+            {
+              "num": "6.2",
+              "heading": "Service & Assistance Animals",
+              "text": "Qualified service and emotional support animals are accommodated in accordance with applicable Fair Housing laws upon standard documentation verification."
+            }
+          ]
+        },
+          
+        {
+          "number": "7",
+          "title": "PEACEFUL ENJOYMENT & SMOKE-FREE ENVIRONMENT",
+          "clauses": [
+            {
+              "num": "7.1",
+              "heading": "Quiet Hours Enforcement",
+              "text": "All residents and visitors shall observe quiet hours between 10:00 PM and 8:00 AM daily. Audio equipment, musical instruments, and children's activities shall be modulated to prevent disturbing adjacent units."
+            },
+            {
+              "num": "7.2",
+              "heading": "Strict Smoke-Free Community",
+              "text": "Smoking, vaping, e-cigarettes, and burning of incense or cannabis are strictly prohibited inside the unit, on private balconies, and throughout all common hallways, courtyards, and garage bays."
+            }
+          ]
+        },
+        {
+          "number": "8",
+          "title": "ABSOLUTE BAN ON SUBLETTING & SHORT-TERM LODGING",
+          "clauses": [
+            {
+              "num": "8.1",
+              "heading": "No Assignment or Airbnb Use",
+              "text": "Primary Tenant shall NOT assign, sublet, grant licenses, or advertise any room or portion of the Premises on Airbnb, VRBO, Craigslist, or any transient hospitality platform. Violation triggers immediate statutory 3-day notice to quit."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_number": 3,
+      "page_title": "Execution Signatures, Household Attestation & Exhibit A",
+      "sections": [
+        {
+          "number": "9",
+          "title": "LANDLORD RIGHT OF ACCESS & DEFAULT REMEDIES",
+          "clauses": [
+            {
+              "num": "9.1",
+              "heading": "Inspection & Notice of Entry",
+              "text": "Landlord or its agents may enter the unit during normal business hours upon providing at least twenty-four (24) hours' advance written notice for repairs, safety inspections, or prospective viewings (immediate access in emergencies)."
+            },
+            {
+              "num": "9.2",
+              "heading": "Default & Eviction",
+              "text": "Failure to pay rent or breach of any household covenant constitutes default. Landlord may pursue all legal remedies under governing law, including recovery of reasonable attorney fees."
+            }
+          ]
+        }
+      ],
+      "is_signature_page": true,
+      "exhibit_a": {
+        "title": "EXHIBIT A: MOVE-IN INVENTORY & ACCESS CREDENTIALS",
+        "keys_issued": [
+          { "item": "Building Main Entrance RFID Fobs", "qty": "2 Keyfobs", "serial": "FOB-4081 / FOB-4082" },
+          { "item": "Unit High-Security Deadbolt Keys", "qty": "3 Keys", "serial": "MED-4B-A / B / C" },
+          { "item": "Central Mailbox Key", "qty": "2 Keys", "serial": "MB-04B-1 / 2" },
+          { "item": "Underground Parking Gate Remote", "qty": "2 Clickers", "serial": "GAT-P14-A / B" },
+          { "item": "Storage Locker Padlock Key", "qty": "1 Key", "serial": "STG-08" }
+        ],
+        "inspection_summary": "Move-in walkthrough conducted on inspection date. Fresh eggshell paint throughout; hardwood flooring pristine in living room; all appliances tested and certified operational."
+      }
+    }
+  ]
+}

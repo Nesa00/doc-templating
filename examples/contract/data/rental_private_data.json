@@ -1,0 +1,79 @@
+{
+  "primary_tenant": {
+    "role_label": "PRIMARY TENANT & SOLE EXECUTING SIGNATORY",
+    "name": "Alexander David Hayes",
+    "id_type_and_number": "California DL #98310492",
+    "dob": "January 18, 1988",
+    "phone": "+1 (650) 555-0274",
+    "email": "alex.hayes@hayestech.io",
+    "employer": "Silicon Engineering Labs, Inc. (Staff Systems Architect)",
+    "legal_capacity_statement": "The Primary Tenant is solely authorized and designated by the household to execute this Lease Agreement. Primary Tenant assumes full, individual, and unconditioned primary financial and legal liability for the prompt payment of rent, utilities, deposits, and complete fulfillment of all covenants on behalf of all household occupants."
+  },
+  "household_residents": [
+    {
+      "name": "Sarah Evelyn Hayes",
+      "relationship": "Spouse / Co-Occupant",
+      "dob": "March 14, 1991",
+      "id_number": "California DL #81920391",
+      "occupant_type": "Authorized Adult Resident",
+      "is_signatory": false,
+      "notes": "Full-time resident; authorized emergency contact & building access."
+    },
+    {
+      "name": "Leo Benjamin Hayes",
+      "relationship": "Minor Child / Dependent",
+      "dob": "August 22, 2018 (Age 7)",
+      "id_number": "Minor Student Record",
+      "occupant_type": "Authorized Minor Dependent",
+      "is_signatory": false,
+      "notes": "Minor child residing with parent; enrolled at Palo Alto Elementary."
+    },
+    {
+      "name": "Maya Rose Hayes",
+      "relationship": "Minor Child / Dependent",
+      "dob": "November 5, 2021 (Age 4)",
+      "id_number": "Minor Birth Record",
+      "occupant_type": "Authorized Minor Dependent",
+      "is_signatory": false,
+      "notes": "Minor child residing with parents."
+    },
+    {
+      "name": "Evelyn Clara Hayes",
+      "relationship": "Mother / Senior Dependent",
+      "dob": "June 12, 1957 (Age 68)",
+      "id_number": "California ID #62910492",
+      "occupant_type": "Authorized Senior Resident / Dependent",
+      "is_signatory": false,
+      "notes": "Elderly parent under family care; assigned accessible fob access."
+    }
+  ],
+  "premises": {
+    "community_name": "Grandview Heights Residences",
+    "unit_number": "Apartment 4B",
+    "address": "742 Evergreen Boulevard, Apt 4B",
+    "city_state_zip": "Palo Alto, CA 94301",
+    "specs": "2 Bedrooms, 2 Bathrooms, 1,120 Sq. Ft.",
+    "amenities_included": "1 Assigned Underground Parking Bay (#P-14), 1 Secured Storage Locker (#S-08), In-Unit Washer & Dryer, Private Balcony"
+  },
+  "landlord": {
+    "entity_name": "Oakridge Properties & Asset Management LLC",
+    "short_name": "Landlord",
+    "representative": "Julian Vance",
+    "title": "Licensed Property Director",
+    "address": "1200 University Avenue, Suite 300",
+    "city_state_zip": "Palo Alto, CA 94301",
+    "phone": "+1 (650) 555-0819",
+    "email": "leasing@oakridge-properties.com",
+    "emergency_phone": "+1 (650) 555-0911 (24/7 Urgent Dispatch)"
+  },
+  "lease_terms": {
+    "lease_number": "RLA-2025-408-A",
+    "effective_date": "December 1, 2025",
+    "lease_term": "12 Months (December 1, 2025 to November 30, 2026)",
+    "monthly_rent": "$2,850.00",
+    "rent_due_day": "1st day of each calendar month",
+    "late_fee": "$75.00 after the 5th day of the month",
+    "security_deposit": "$3,500.00",
+    "governing_law": "State of California (Santa Clara County)"
+  }
+}

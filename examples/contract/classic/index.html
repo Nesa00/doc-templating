@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ metadata.title }} &mdash; Ref: {{ metadata.agreement_number }}</title>
+  <!-- Google Fonts for High-Fidelity Legal Typography & Print -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Stylesheet imports -->
+  <link rel="stylesheet" href="examples/contract/classic/style.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contract-wrapper">
+    {% for page in pages %}
+    <section class="contract-page" id="contract-page-{{ page.page_number }}" data-page="{{ page.page_number }}">
+      <!-- Running Page Header -->
+      <header class="page-running-header">
+        <span class="header-left">{{ metadata.short_title }} &bull; Ref: {{ metadata.agreement_number }}</span>
+        <span class="header-right">{{ metadata.classification }}</span>
+      </header>
+
+      <!-- Page Content Container -->
+      <main class="page-content">
+        {% if page.is_cover_page %}
+        <!-- Document Hero & Parties Preamble (Page 1) -->
+        <div class="contract-hero">
+          <span class="contract-badge">Standard Commercial Agreement</span>
+          <h1 class="contract-title">{{ metadata.title }}</h1>
+          <div class="contract-meta-line">
+            <span><strong>Effective Date:</strong> {{ metadata.effective_date }}</span>
+            <span>&bull;</span>
+            <span><strong>Agreement No:</strong> {{ metadata.agreement_number }}</span>
+            <span>&bull;</span>
+            <span><strong>Governing Law:</strong> {{ metadata.governing_law }}</span>
+          </div>
+        </div>
+
+        <!-- Parties Block -->
+        <div class="parties-block">
+          <div class="parties-intro">
+            This Master Services Agreement ("Agreement") is made and entered into as of <strong>{{ metadata.effective_date }}</strong> ("Effective Date"), by and between:
+          </div>
+          <div class="parties-grid">
+            <div class="party-card">
+              <div class="party-badge">{{ party_a.label }}</div>
+              <div class="party-name">{{ party_a.name }}</div>
+              <div class="party-details">
+                {{ party_a.entity_type }} (Reg: {{ party_a.registration_no }})<br>
+                {{ party_a.address }}<br>
+                {{ party_a.city_state_zip }}, {{ party_a.country }}<br>
+                Attn: {{ party_a.representative }} ({{ party_a.title }})
+              </div>
+            </div>
+            <div class="party-card">
+              <div class="party-badge">{{ party_b.label }}</div>
+              <div class="party-name">{{ party_b.name }}</div>
+              <div class="party-details">
+                {{ party_b.entity_type }} (Reg: {{ party_b.registration_no }})<br>
+                {{ party_b.address }}<br>
+                {{ party_b.city_state_zip }}, {{ party_b.country }}<br>
+                Attn: {{ party_b.representative }} ({{ party_b.title }})
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recitals -->
+        <div class="recitals-section">
+          {% for recital in recitals %}
+          <div class="recital-item">{{ recital }}</div>
+          {% endfor %}
+          <div class="agreement-proviso">
+            NOW, THEREFORE, in consideration of the mutual covenants, representations, warranties, and undertakings hereinafter set forth, and for other good and valuable consideration, the receipt and legal sufficiency of which are hereby acknowledged, the Parties agree as follows:
+          </div>
+        </div>
+        {% endif %}
+
+        <!-- Articles and Clauses on this page -->
+        {% if page.articles %}
+        {% for article in page.articles %}
+        <div class="article-container">
+          <h2 class="article-header">ARTICLE {{ article.article_number }} &mdash; {{ article.title }}</h2>
+          {% for clause in article.clauses %}
+          <div class="clause-item">
+            <span class="clause-num">{{ clause.number }}</span>
+            <strong class="clause-heading">{{ clause.heading }}.</strong>
+            <span class="clause-text">{{ clause.text }}</span>
+          </div>
+          {% endfor %}
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        <!-- Execution & Signature Block (Page 5) -->
+        {% if page.is_execution_page %}
+        <div class="execution-section">
+          <h2 class="execution-header">IN WITNESS WHEREOF &mdash; EXECUTION</h2>
+          <div class="execution-intro">
+            IN WITNESS WHEREOF, the Parties hereto have caused this Master Services Agreement to be executed by their duly authorized executive representatives as of the Effective Date first written above.
+          </div>
+
+          <div class="signatures-grid">
+            <div class="signature-column">
+              <div class="signature-column-title">For and on behalf of {{ party_a.short_name }}:</div>
+              <div class="sig-line-container">
+                <div class="sig-graphic">{{ party_a.representative }}</div>
+                <div class="sig-rule"></div>
+              </div>
+              <div class="sig-meta-row">
+                <span class="sig-label">Name:</span>
+                <span class="sig-val">{{ party_a.representative }}</span>
+              </div>
+              <div class="sig-meta-row">
+                <span class="sig-label">Title:</span>
+                <span class="sig-val">{{ party_a.title }}</span>
+              </div>
+              <div class="sig-meta-row">
+                <span class="sig-label">Company:</span>
+                <span class="sig-val">{{ party_a.name }}</span>
+              </div>
+              <div class="sig-meta-row">
+                <span class="sig-label">Date:</span>
+                <span class="sig-val">{{ metadata.effective_date }}</span>
+              </div>
+            </div>
+
+            <div class="signature-column">
+              <div class="signature-column-title">For and on behalf of {{ party_b.short_name }}:</div>
+              <div class="sig-line-container">
+                <div class="sig-graphic">{{ party_b.representative }}</div>
+                <div class="sig-rule"></div>
+              </div>
+              <div class="sig-meta-row">
+                <span class="sig-label">Name:</span>
+                <span class="sig-val">{{ party_b.representative }}</span>
+              </div>
+              <div class="sig-meta-row">
+                <span class="sig-label">Title:</span>
+                <span class="sig-val">{{ party_b.title }}</span>
+              </div>
+              <div class="sig-meta-row">
+                <span class="sig-label">Company:</span>
+                <span class="sig-val">{{ party_b.name }}</span>
+              </div>
+              <div class="sig-meta-row">
+                <span class="sig-label">Date:</span>
+                <span class="sig-val">{{ metadata.effective_date }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+        <!-- Schedule A (Page 5) -->
+        {% if page.schedule_a %}
+        <div class="schedule-section">
+          <div class="schedule-hero">
+            <h3 class="schedule-title">{{ page.schedule_a.title }}</h3>
+            <div class="schedule-subtitle">Project: <strong>{{ page.schedule_a.project_name }}</strong> &bull; Term: {{ page.schedule_a.start_date }} to {{ page.schedule_a.target_completion }}</div>
+          </div>
+
+          <table class="contract-table">
+            <thead>
+              <tr>
+                <th style="width: 12%;">Milestone</th>
+                <th style="width: 32%;">Phase &amp; Scope</th>
+                <th style="width: 40%;">Core Deliverables &amp; Verification</th>
+                <th style="width: 16%;" class="fee-col">Fee (USD)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for m in page.schedule_a.milestones %}
+              <tr>
+                <td><strong>{{ m.id }}</strong><br><small style="color: #64748b;">Due: {{ m.due }}</small></td>
+                <td><strong>{{ m.title }}</strong></td>
+                <td>{{ m.deliverable }}</td>
+                <td class="fee-col">{{ m.fee }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        {% endif %}
+
+        <!-- Schedule B (Page 6) -->
+        {% if page.schedule_b %}
+        <div class="schedule-section">
+          <div class="schedule-hero">
+            <h3 class="schedule-title">{{ page.schedule_b.title }}</h3>
+            <div class="schedule-subtitle">{{ page.schedule_b.intro }}</div>
+          </div>
+
+          <table class="contract-table">
+            <thead>
+              <tr>
+                <th style="width: 20%;">Severity Level</th>
+                <th style="width: 44%;">Operational Definition</th>
+                <th style="width: 13%;">Initial Response</th>
+                <th style="width: 13%;">Target Resolution</th>
+                <th style="width: 10%;">Credit</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for sla in page.schedule_b.slas %}
+              <tr>
+                <td><span class="sla-badge">{{ sla.level }}</span></td>
+                <td>{{ sla.definition }}</td>
+                <td><strong>{{ sla.response }}</strong></td>
+                <td><strong>{{ sla.resolution }}</strong></td>
+                <td><small>{{ sla.credit }}</small></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        {% endif %}
+
+        <!-- Schedule C (Page 6) -->
+        {% if page.schedule_c %}
+        <div class="schedule-section">
+          <div class="schedule-hero">
+            <h3 class="schedule-title">{{ page.schedule_c.title }}</h3>
+          </div>
+
+          <table class="contract-table">
+            <thead>
+              <tr>
+                <th style="width: 45%;">Professional Role</th>
+                <th style="width: 25%;">Hourly Billing Rate</th>
+                <th style="width: 30%;">Standard Allocation</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for role in page.schedule_c.roles %}
+              <tr>
+                <td><strong>{{ role.role }}</strong></td>
+                <td class="fee-col">{{ role.rate }}</td>
+                <td>{{ role.commitment }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
+          <div class="notice-box">
+            <strong>Reimbursable Expenses Policy:</strong> {{ page.schedule_c.expense_policy }}
+          </div>
+        </div>
+        {% endif %}
+      </main>
+
+      <!-- Running Page Footer with Exact Page Numbers -->
+      <footer class="page-running-footer">
+        <span class="footer-left">{{ metadata.agreement_number }} &bull; {{ metadata.short_title }}</span>
+        <span class="footer-center">{{ metadata.classification }}</span>
+        <span class="footer-right">Page <strong class="page-number">{{ page.page_number }}</strong> of <strong class="page-total">{{ metadata.total_pages }}</strong></span>
+      </footer>
+    </section>
+    {% endfor %}
+  </div>
+</body>
+</html>

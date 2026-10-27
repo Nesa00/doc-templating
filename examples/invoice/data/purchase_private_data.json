@@ -1,0 +1,116 @@
+{
+  "seller": {
+    "name": "Precision Instruments & Industrial Supply Corp.",
+    "brand_name": "PRECISION INDUSTRIAL SUPPLY",
+    "tagline": "Calibrated Metrology, Cleanroom & Electronics Assembly Hardware",
+    "registration_no": "US-DE-CORP-492104",
+    "tax_id": "US-84-2910492",
+    "address": "1840 Enterprise Way, Suite 400",
+    "city_state_zip": "Fremont, CA 94538",
+    "country": "United States",
+    "phone": "+1 (510) 555-0199",
+    "email": "orders@precision-supply.io",
+    "website": "www.precision-supply.io",
+    "billing_rep": "Clara Dupont (Senior Accounts Manager)",
+    "remit_to": {
+      "bank_name": "Silicon Valley Commercial Bank N.A.",
+      "account_holder": "Precision Instruments & Industrial Supply Corp.",
+      "account_number": "94820194820",
+      "routing_number": "121000358",
+      "swift_bic": "SVCBUS6SXXX",
+      "iban": "US82SVCB00012100035894820",
+      "remittance_email": "finance@precision-supply.io"
+    }
+  },
+  "buyer": {
+    "company": "Silicon Systems Engineering Labs Inc.",
+    "attention": "Marcus Vance (CTO / Head of Hardware Lab)",
+    "tax_id": "US-94-3829104",
+    "billing_address": "742 Evergreen Boulevard, Suite 200",
+    "billing_city_state_zip": "Palo Alto, CA 94301",
+    "billing_country": "United States",
+    "shipping_address": "742 Evergreen Boulevard, Receiving Dock C",
+    "shipping_city_state_zip": "Palo Alto, CA 94301",
+    "shipping_country": "United States",
+    "email": "ap-invoices@silicon-systems.io",
+    "phone": "+1 (650) 555-0274"
+  },
+  "invoice_meta": {
+    "invoice_number": "INV-2025-1049-P",
+    "po_number": "PO-2025-8842",
+    "issue_date": "November 24, 2025",
+    "due_date": "December 24, 2025",
+    "payment_terms": "Net 30 Days",
+    "ship_via": "FedEx Priority Freight (Insured)",
+    "currency": "USD ($)",
+    "payment_status": "PAYMENT PENDING",
+    "delivery_tracking": "FX-77492019481"
+  },
+  "line_items": [
+    {
+      "sku": "WL-WX2021",
+      "description": "Weller WX2021 Dual-Channel Digital Soldering Station Kit",
+      "spec": "Includes WXMP micro soldering iron, WXMT micro desoldering tweezers, active cartridge tips, and digital base unit.",
+      "qty": 2,
+      "unit": "Units",
+      "unit_price": "$1,280.00",
+      "discount": "5%",
+      "tax_rate": "8.25%",
+      "total": "$2,432.00"
+    },
+    {
+      "sku": "FLK-289-TRMS",
+      "description": "Fluke 289 True-RMS Industrial Logging Multimeter Combo Kit",
+      "spec": "TrendCapture data logging, low-pass filter, optical USB interface cable, magnetic meter hanger, and NIST traceable certificate.",
+      "qty": 3,
+      "unit": "Units",
+      "unit_price": "$895.00",
+      "discount": "0%",
+      "tax_rate": "8.25%",
+      "total": "$2,685.00"
+    },
+    {
+      "sku": "ESD-BENCH-6030",
+      "description": "Static-Dissipative Cleanroom Modular Workbench (60\" x 30\")",
+      "spec": "Heavy-gauge steel frame, dual ESD laminate shelves, integrated LED dimmable task light, grounded power strip, 1MΩ ground cords.",
+      "qty": 2,
+      "unit": "Units",
+      "unit_price": "$1,450.00",
+      "discount": "10%",
+      "tax_rate": "8.25%",
+      "total": "$2,610.00"
+    },
+    {
+      "sku": "AOI-CAL-STD",
+      "description": "High-Precision Chrome-on-Glass Optical Calibration Target",
+      "spec": "Dot grid array 0.25mm pitch with certified laser metrology certificate for AOI machine camera distortion correction.",
+      "qty": 1,
+      "unit": "Kit",
+      "unit_price": "$950.00",
+      "discount": "0%",
+      "tax_rate": "8.25%",
+      "total": "$950.00"
+    },
+    {
+      "sku": "CAL-CERT-NIST",
+      "description": "ISO/IEC 17025 Accredited Metrology & Calibration Service",
+      "spec": "Full multi-point calibration certification with before/after measurement data and calibration stickers for all kit components.",
+      "qty": 1,
+      "unit": "Lot",
+      "unit_price": "$480.00",
+      "discount": "0%",
+      "tax_rate": "0.00%",
+      "total": "$480.00"
+    }
+  ],
+  "summary": {
+    "subtotal": "$9,520.00",
+    "total_discount": "-$363.00",
+    "net_taxable": "$8,677.00",
+    "tax_amount": "$715.85",
+    "shipping_and_handling": "$145.00",
+    "total_amount_due": "$9,537.85",
+    "deposit_paid": "$0.00",
+    "balance_outstanding": "$9,537.85"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "party_a": {
+    "label": "CLIENT",
+    "name": "Apex Global Technologies Inc.",
+    "short_name": "Apex",
+    "entity_type": "a Delaware corporation",
+    "registration_no": "DE-REG-8472910",
+    "address": "100 Montgomery Street, Suite 2400",
+    "city_state_zip": "San Francisco, CA 94104",
+    "country": "United States",
+    "representative": "Marcus Vance",
+    "title": "Chief Technology Officer",
+    "email": "m.vance@apextechnologies.io",
+    "phone": "+1 (415) 555-0192"
+  },
+  "party_b": {
+    "label": "SERVICE PROVIDER",
+    "name": "Vanguard Digital Solutions LLC",
+    "short_name": "Vanguard",
+    "entity_type": "a California limited liability company",
+    "registration_no": "CA-LLC-20183921",
+    "address": "450 Innovation Parkway, Suite 500",
+    "city_state_zip": "San Jose, CA 95134",
+    "country": "United States",
+    "representative": "Elena Rostova",
+    "title": "Managing Partner & CEO",
+    "email": "e.rostova@vanguard-digital.com",
+    "phone": "+1 (408) 555-0148"
+  },
+  "contract_terms": {
+    "agreement_number": "MSA-2025-089-B",
+    "effective_date": "November 1, 2025",
+    "governing_law": "State of Delaware",
+    "jurisdiction": "Wilmington, Delaware"
+  }
+}

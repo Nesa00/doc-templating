@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ personal.name }} — Cover Letter</title>
+  <!-- Google Fonts: Plus Jakarta Sans for crisp headers & Inter for body, JetBrains Mono for metrics -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="examples/CV/modern/cover-letter_style.css">
+  <link rel="stylesheet" href="cover-letter_style.css">
+</head>
+<body>
+  <div class="letter-sheet">
+    <!-- Top Identity & Header Bar -->
+    <header class="letter-top-header">
+      <div class="header-identity">
+        <div class="brand-monogram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="brand-names">
+          <h1 class="candidate-name">{{ personal.name }}</h1>
+          <span class="candidate-role">Senior Cloud &amp; DevOps Engineer</span>
+        </div>
+      </div>
+
+      <div class="header-contact-list">
+        <div class="contact-entry">
+          <span class="entry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L1 7"/></svg>
+          </span>
+          <a href="mailto:{{ personal.email }}">{{ personal.email }}</a>
+        </div>
+
+        {% if personal.phone %}
+        <div class="contact-entry">
+          <span class="entry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <a href="tel:{{ personal.phone }}">{{ personal.phone }}</a>
+        </div>
+        {% endif %}
+
+        {% if personal.location %}
+        <div class="contact-entry">
+          <span class="entry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          <span>{{ personal.location }}</span>
+        </div>
+        {% endif %}
+      </div>
+    </header>
+
+    <div class="header-accent-divider"></div>
+
+    <!-- Recipient Card & Date Meta -->
+    <div class="meta-section">
+      <div class="recipient-card">
+        <span class="meta-label">TO:</span>
+        <div class="recipient-details">
+          {% if recipient.name %}<span class="recipient-name">{{ recipient.name }}</span>{% endif %}
+          {% if recipient.title %}<span class="recipient-title">{{ recipient.title }}</span>{% endif %}
+          {% if recipient.company %}<span class="recipient-company">{{ recipient.company }}</span>{% endif %}
+          {% if recipient.address %}<span class="recipient-address">{{ recipient.address }}</span>{% endif %}
+        </div>
+      </div>
+
+      <div class="date-card">
+        <span class="meta-label">DATE:</span>
+        <span class="letter-date">{{ letter.date }}</span>
+      </div>
+    </div>
+
+    <!-- Subject Banner -->
+    {% if letter.subject %}
+    <div class="subject-banner">
+      <span class="subject-tag">RE:</span>
+      <h2 class="subject-text">{{ letter.subject }}</h2>
+    </div>
+    {% endif %}
+
+    <!-- Salutation -->
+    <div class="salutation">
+      {{ letter.salutation }}
+    </div>
+
+    <!-- Letter Body -->
+    <main class="letter-body">
+      {% for paragraph in letter.paragraphs %}
+      <p class="letter-paragraph">{{ paragraph }}</p>
+      {% endfor %}
+
+      {% if letter.highlights %}
+      <div class="highlights-panel">
+        <h3 class="highlights-heading">Key Value &amp; Core Competencies</h3>
+        <ul class="highlights-list">
+          {% for item in letter.highlights %}
+          <li class="highlight-item">
+            <span class="highlight-bullet">▸</span>
+            <span class="highlight-text">{{ item }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      {% if letter.closing %}
+      <p class="closing-paragraph">{{ letter.closing }}</p>
+      {% endif %}
+    </main>
+
+    <!-- Signoff & Signature Block -->
+    <footer class="letter-footer">
+      <p class="signoff-word">{{ letter.signoff }}</p>
+      <div class="signature-block">
+        <span class="signature-name">{{ letter.signatureName or personal.name }}</span>
+        {% if letter.title %}
+        <span class="signature-role">{{ letter.title }}</span>
+        {% endif %}
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

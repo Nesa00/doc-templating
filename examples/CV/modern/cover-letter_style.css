@@ -1,0 +1,457 @@
+/* ==========================================================================
+   Modern Architectural Cover Letter Stylesheet
+   Designed for Executive Presence & High-Resolution Headless Chromium/Brave Print
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
+:root {
+  --color-canvas: #ffffff;
+  --color-primary: #0f172a;        /* Deep obsidian / slate-900 */
+  --color-primary-light: #1e293b;  /* Slate-800 */
+  --color-accent: #0284c7;         /* High-tech cyan / sky-600 */
+  --color-accent-dim: #e0f2fe;     /* Sky-100 tint */
+  --color-text-title: #090d16;
+  --color-text-body: #1e293b;      /* Slate-800 for maximum readability */
+  --color-text-muted: #475569;     /* Slate-600 */
+  --color-text-light: #64748b;     /* Slate-500 */
+  --color-border: #e2e8f0;         /* Slate-200 */
+  --color-border-dark: #cbd5e1;    /* Slate-300 */
+  --color-surface-soft: #f8fafc;   /* Slate-50 */
+
+  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', "SFMono-Regular", Consolas, Menlo, monospace;
+}
+
+/* Page Geometry for Direct PDF Output (A4 Standard) */
+@page {
+  size: A4 portrait;
+  margin: 10mm 15mm 10mm 15mm;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #e2e8f0;
+  color: var(--color-text-body);
+  font-family: var(--font-sans);
+  font-size: 8.75pt;
+  line-height: 1.42;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Master A4 Sheet Container */
+.letter-sheet {
+  width: 210mm;
+  max-width: 210mm;
+  min-height: 297mm;
+  margin: 24px auto;
+  background-color: var(--color-canvas);
+  padding: 13mm 16mm 12mm 16mm;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12), 0 2px 6px rgba(15, 23, 42, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top Header */
+.letter-top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 12px;
+}
+
+.header-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-monogram {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 14pt;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  box-shadow: 0 3px 6px rgba(15, 23, 42, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  flex-shrink: 0;
+}
+
+.brand-monogram svg {
+  width: 23px;
+  height: 23px;
+  stroke: #38bdf8;
+}
+
+.brand-names {
+  display: flex;
+  flex-direction: column;
+}
+
+.candidate-name {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 16pt;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+  line-height: 1.1;
+}
+
+.candidate-role {
+  font-size: 8.2pt;
+  font-weight: 600;
+  color: var(--color-accent);
+  letter-spacing: 0.02em;
+  margin-top: 2px;
+}
+
+.header-contact-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  font-size: 7.8pt;
+  color: var(--color-text-muted);
+}
+
+.contact-entry {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.entry-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
+  background-color: var(--color-accent-dim);
+  flex-shrink: 0;
+}
+
+.entry-icon svg {
+  width: 9px;
+  height: 9px;
+  stroke: var(--color-accent);
+}
+
+.contact-entry a {
+  transition: color 0.15s ease;
+}
+
+.contact-entry a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.header-accent-divider {
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--color-accent) 0%, #cbd5e1 60%, transparent 100%);
+  margin-bottom: 12px;
+}
+
+/* Recipient and Date Section */
+.meta-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  gap: 20px;
+}
+
+.recipient-card {
+  display: flex;
+  gap: 8px;
+}
+
+.meta-label {
+  font-family: var(--font-mono);
+  font-size: 7pt;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-top: 1.5px;
+}
+
+.recipient-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5px;
+  font-size: 8.4pt;
+}
+
+.recipient-name {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.recipient-title {
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.recipient-company {
+  font-weight: 600;
+  color: var(--color-primary-light);
+}
+
+.recipient-address {
+  color: var(--color-text-light);
+  font-size: 8pt;
+}
+
+.date-card {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.letter-date {
+  font-family: var(--font-mono);
+  font-size: 7.9pt;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+/* Subject Banner */
+.subject-banner {
+  background-color: var(--color-surface-soft);
+  border-left: 3px solid var(--color-accent);
+  border-top: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  border-radius: 0 4px 4px 0;
+  padding: 6px 10px;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.subject-tag {
+  font-family: var(--font-mono);
+  font-size: 7.2pt;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.subject-text {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 8.8pt;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* Salutation */
+.salutation {
+  font-size: 8.8pt;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+/* Letter Body */
+.letter-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.letter-paragraph {
+  margin: 0;
+  font-size: 8.6pt;
+  line-height: 1.44;
+  color: var(--color-text-body);
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* Highlights Box */
+.highlights-panel {
+  background-color: #fafbfc;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin: 2px 0;
+}
+
+.highlights-heading {
+  margin: 0 0 6px 0;
+  font-family: var(--font-heading);
+  font-size: 8.2pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-accent);
+}
+
+.highlights-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 8.3pt;
+  line-height: 1.35;
+  color: var(--color-text-body);
+}
+
+.highlight-bullet {
+  color: var(--color-accent);
+  font-size: 7.5pt;
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+
+.highlight-text {
+  flex: 1;
+}
+
+.closing-paragraph {
+  margin: 0;
+  font-size: 8.6pt;
+  line-height: 1.44;
+  color: var(--color-text-body);
+}
+
+/* Signoff & Signature Footer */
+.letter-footer {
+  margin-top: 10px;
+  padding-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.signoff-word {
+  margin: 0;
+  font-size: 8.8pt;
+  font-weight: 500;
+  color: var(--color-text-body);
+}
+
+.signature-block {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.signature-name {
+  font-family: var(--font-heading);
+  font-size: 11pt;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.signature-role {
+  font-size: 8pt;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   Screen & Print Media Queries
+   ========================================================================== */
+
+@media screen and (max-width: 900px) {
+  body {
+    background: #ffffff;
+    padding: 10px;
+  }
+
+  .letter-sheet {
+    width: 100%;
+    min-height: auto;
+    margin: 0;
+    padding: 16px;
+    box-shadow: none;
+  }
+
+  .letter-top-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-contact-list {
+    align-items: flex-start;
+  }
+
+  .meta-section {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media print {
+  html,
+  body {
+    width: 210mm !important;
+    height: 297mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .letter-sheet {
+    width: 210mm !important;
+    min-height: 297mm !important;
+    height: 297mm !important;
+    margin: 0 !important;
+    padding: 10mm 15mm 10mm 15mm !important;
+    box-shadow: none !important;
+    page-break-after: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .brand-monogram,
+  .entry-icon,
+  .header-accent-divider,
+  .subject-banner,
+  .highlights-panel {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}

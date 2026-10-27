@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "title": "COMMERCIAL PURCHASE INVOICE",
+    "document_type": "OFFICIAL TAX INVOICE",
+    "classification": "ORIGINAL PURCHASE DOCUMENT",
+    "total_pages": 1
+  },
+  "column_headers": {
+    "sku": "Item / SKU",
+    "description": "Description & Specifications",
+    "qty": "Qty",
+    "unit_price": "Unit Price",
+    "discount": "Disc.",
+    "tax_rate": "Tax Rate",
+    "total": "Amount (USD)"
+  },
+  "legal_terms": {
+    "title": "TERMS OF PURCHASE & REMITTANCE POLICY",
+    "points": [
+      "Payment is due strictly within 30 days of the invoice date ('Net 30'). Delinquent balances are subject to a late charge of 1.5% per month (18% per annum) or the maximum permitted by applicable law.",
+      "Title and ownership of all equipment and supplies remain with Seller until all invoiced amounts have been paid in full and irrevocably cleared in Seller's designated account.",
+      "Any claims for delivery discrepancy, shortage, or transit damages must be notified in writing within five (5) business days following physical receipt at the delivery destination.",
+      "Hardware items carry a 12-month manufacturer parts warranty. Any returns require a prior Return Merchandise Authorization (RMA) issued by Seller; unapproved returns cannot be accepted.",
+      "Remit payments electronically via ACH or FedWire using the account instructions detailed in the Payment Details panel. Always state the Invoice Number on your remittance advice."
+    ]
+  },
+  "notes": {
+    "support_message": "Thank you for partnering with Precision Industrial Supply. For billing or logistics assistance, contact finance@precision-supply.io or call our order desk at +1 (510) 555-0199.",
+    "electronic_statement": "This commercial document is generated electronically and constitutes a legally binding invoice of purchase under the Uniform Commercial Code (UCC)."
+  }
+}

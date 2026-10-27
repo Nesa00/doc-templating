@@ -4,7 +4,7 @@ from dataclasses import dataclass
 class Defaults:
     """Default configuration for PDF/HTML generation."""
     templates_folder = "template"
-    base_html = "main.html"
+    base_html = "index.html"
     output_pdf = "output.pdf"
     output_html = "output.html"
     paths = {

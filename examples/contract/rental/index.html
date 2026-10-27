@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ metadata.title }} &mdash; Unit {{ premises.unit_number }} (Ref: {{ (lease_terms or terms or metadata).lease_number }})</title>
+  <!-- Google Fonts for High-Fidelity Legal Typography & Print -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Stylesheet imports -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="examples/contract/rental/style.css">
+</head>
+<body>
+  {% set t = lease_terms or terms or metadata %}
+  <div class="lease-wrapper">
+    {% for page in pages %}
+    <section class="lease-page" id="lease-page-{{ page.page_number }}" data-page="{{ page.page_number }}">
+      <!-- Running Page Header -->
+      <header class="page-running-header">
+        <span class="header-left">{{ metadata.short_title }} &bull; {{ premises.address }}</span>
+        <span class="header-right">Ref: {{ t.lease_number }}</span>
+      </header>
+
+      <!-- Page Content Container -->
+      <main class="page-content">
+        {% if page.is_page_one %}
+        <!-- Document Title & Header (Page 1) -->
+        <div class="lease-hero">
+          <span class="lease-badge">{{ metadata.classification }}</span>
+          <h1 class="lease-title">{{ metadata.title }}</h1>
+          <div class="lease-meta-strip">
+            <span><strong>Premises:</strong> {{ premises.address }}</span>
+            <span>&bull;</span>
+            <span><strong>Lease Term:</strong> {{ t.lease_term }}</span>
+            <span>&bull;</span>
+            <span><strong>Governing Law:</strong> {{ t.governing_law }}</span>
+          </div>
+        </div>
+
+        <!-- Key Financial & Term Parameters -->
+        <div class="lease-summary-card">
+          <div class="summary-col">
+            <strong>Monthly Rent</strong>
+            <span>{{ t.monthly_rent }} (Due: {{ t.rent_due_day }})</span>
+          </div>
+          <div class="summary-col">
+            <strong>Security Deposit</strong>
+            <span>{{ t.security_deposit }}</span>
+          </div>
+          <div class="summary-col">
+            <strong>Late Surcharge</strong>
+            <span>{{ t.late_fee }}</span>
+          </div>
+        </div>
+
+        <!-- Household Composition & Resident Registry -->
+        <div class="household-roster-box">
+          <div class="roster-header">
+            <span class="roster-title">Household Occupancy &amp; Signatory Registry</span>
+            <span class="roster-note-badge">1 Primary Signatory &bull; 4 Additional Residents</span>
+          </div>
+
+          <!-- Highlighted Primary Tenant & Sole Signatory -->
+          <div class="primary-tenant-card">
+            <div class="primary-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <span>{{ primary_tenant.role_label }}</span>
+            </div>
+            <div class="primary-name-row">
+              <span class="primary-tenant-name">{{ primary_tenant.name }}</span>
+              <span class="primary-tenant-id">{{ primary_tenant.id_type_and_number }} &bull; {{ primary_tenant.phone }}</span>
+            </div>
+            <div class="primary-statement">
+              {{ primary_tenant.legal_capacity_statement }}
+            </div>
+          </div>
+
+          <!-- Non-Signing Household Members Table -->
+          <table class="residents-table">
+            <thead>
+              <tr>
+                <th style="width: 28%;">Authorized Resident</th>
+                <th style="width: 22%;">Relationship</th>
+                <th style="width: 25%;">Identification / Age</th>
+                <th style="width: 25%;">Signatory Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for res in household_residents %}
+              <tr>
+                <td><span class="resident-name">{{ res.name }}</span></td>
+                <td>{{ res.relationship }}</td>
+                <td>{{ res.dob }}<br><small style="color: #64748b;">{{ res.id_number }}</small></td>
+                <td><span class="tag-occupant">{{ res.occupant_type }} (Non-Signatory)</span></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        {% endif %}
+
+        <!-- Legal Sections on this Page -->
+        {% if page.sections %}
+        {% for section in page.sections %}
+        <div class="section-block">
+          <h2 class="section-title">SECTION {{ section.number }} &mdash; {{ section.title }}</h2>
+          {% for clause in section.clauses %}
+          <div class="clause-block">
+            <span class="clause-num">{{ clause.num }}</span>
+            <strong class="clause-heading">{{ clause.heading }}.</strong>
+            <span class="clause-text">{{ clause.text }}</span>
+          </div>
+          {% endfor %}
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        <!-- Execution Signatures & Exhibit A (Page 4) -->
+        {% if page.is_signature_page %}
+        <div class="execution-section">
+          <div class="execution-hero">
+            <h2 class="execution-title">SECTION 10 &mdash; EXECUTION, HOUSEHOLD ATTESTATION &amp; INVENTORY</h2>
+          </div>
+
+          <!-- Sole Primary Tenant Attestation Statement -->
+          <div class="attestation-box">
+            <strong>PRIMARY TENANT ATTESTATION &amp; HOUSEHOLD WARRANTY:</strong><br>
+            The undersigned Primary Tenant (<strong>{{ primary_tenant.name }}</strong>) certifies, warrants, and agrees that the individuals enumerated in the Household Occupancy Registry constitute the sole permanent occupants residing at the Premises. As the sole executing signatory, Primary Tenant assumes primary legal and financial liability for all obligations, covenants, indemnities, and community conduct rules under this Agreement on behalf of all household members and guests.
+          </div>
+
+          <!-- Two-Column Signatures -->
+          <div class="signatures-container">
+            <!-- Landlord Column -->
+            <div class="signature-card">
+              <div class="sig-party-title">For and on behalf of Landlord:</div>
+              <div class="sig-handwritten">{{ landlord.representative }}</div>
+              <div class="sig-separator"></div>
+              <div class="sig-row">
+                <span class="sig-row-label">Entity:</span>
+                <span class="sig-row-val">{{ landlord.entity_name }}</span>
+              </div>
+              <div class="sig-row">
+                <span class="sig-row-label">Signatory:</span>
+                <span class="sig-row-val">{{ landlord.representative }}</span>
+              </div>
+              <div class="sig-row">
+                <span class="sig-row-label">Title:</span>
+                <span class="sig-row-val">{{ landlord.title }}</span>
+              </div>
+              <div class="sig-row">
+                <span class="sig-row-label">Date:</span>
+                <span class="sig-row-val">{{ t.effective_date }}</span>
+              </div>
+            </div>
+
+            <!-- Primary Tenant (Sole Signatory) Column -->
+            <div class="signature-card" style="border: 1.5px solid #0284c7; background: #fafcff;">
+              <div class="sig-party-title" style="color: #0369a1;">
+                Primary Tenant &amp; Sole Signatory:
+              </div>
+              <div class="sig-handwritten">{{ primary_tenant.name }}</div>
+              <div class="sig-separator"></div>
+              <div class="sig-row">
+                <span class="sig-row-label">Name:</span>
+                <span class="sig-row-val">{{ primary_tenant.name }}</span>
+              </div>
+              <div class="sig-row">
+                <span class="sig-row-label">Capacity:</span>
+                <span class="sig-row-val" style="color: #0284c7;">Sole Executing Signatory</span>
+              </div>
+              <div class="sig-row">
+                <span class="sig-row-label">ID / License:</span>
+                <span class="sig-row-val">{{ primary_tenant.id_type_and_number }}</span>
+              </div>
+              <div class="sig-row">
+                <span class="sig-row-label">Date:</span>
+                <span class="sig-row-val">{{ t.effective_date }}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Exhibit A: Key Inventory Table -->
+          {% if page.exhibit_a %}
+          <div class="exhibit-box" style="margin-top: 14px;">
+            <div class="roster-header">
+              <span class="roster-title">{{ page.exhibit_a.title }}</span>
+              <span style="font-size: 7.5pt; color: #64748b; font-family: var(--font-sans);">Handover: {{ t.effective_date }}</span>
+            </div>
+
+            <table class="exhibit-table">
+              <thead>
+                <tr>
+                  <th style="width: 45%;">Access Credential / Issued Property</th>
+                  <th style="width: 20%;">Quantity Issued</th>
+                  <th style="width: 35%;">Tracking Serial / Identifier</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for k in page.exhibit_a.keys_issued %}
+                <tr>
+                  <td><strong>{{ k.item }}</strong></td>
+                  <td>{{ k.qty }}</td>
+                  <td style="font-family: var(--font-mono);">{{ k.serial }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+
+            <div style="font-size: 7.8pt; color: #475569; font-style: italic; margin-top: 6px; font-family: var(--font-sans);">
+              {{ page.exhibit_a.inspection_summary }}
+            </div>
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
+      </main>
+
+      <!-- Running Page Footer with Exact Page Numbers -->
+      <footer class="page-running-footer">
+        <span class="footer-left">{{ t.lease_number }} &bull; {{ landlord.entity_name }}</span>
+        <span class="footer-center">Sole Signatory: {{ primary_tenant.name }} &bull; {{ metadata.classification }}</span>
+        <span class="footer-right">Page <strong class="page-number">{{ page.page_number }}</strong> of <strong class="page-total">{{ metadata.total_pages }}</strong></span>
+      </footer>
+    </section>
+    {% endfor %}
+  </div>
+</body>
+</html>
